@@ -1,0 +1,479 @@
+/* ==========================================================================
+   MemoryCollection Component Styles
+   Theme tokens:
+   - Warm cream: #fff8f1
+   - Rich berry: #a34063
+   - Warm brown: #5c4033
+   - Lavender: #c7b5f5
+   - Pale lilac: #eee7ff
+   - Blush pink: #f6dce8
+   - Warm gold: #f4cc77
+   - Deep night purple: #211d3a
+   ========================================================================== */
+
+.memories-section {
+  position: relative;
+  padding: 6rem 1.5rem 8rem;
+  background: linear-gradient(180deg, #f6dce8 0%, #fff8f1 30%, #eee7ff 70%, #fff8f1 100%);
+  color: #5c4033;
+  overflow: hidden;
+}
+
+[data-theme='night'] .memories-section {
+  background: linear-gradient(180deg, #18142b 0%, #211d3a 40%, #1c1833 75%, #151128 100%);
+  color: #eee7ff;
+}
+
+.memories-container {
+  max-width: 860px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Header */
+.memories-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.memories-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Fredoka', cursive, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #a34063;
+  background: rgba(246, 220, 232, 0.7);
+  padding: 0.4rem 1.1rem;
+  border-radius: 999px;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(163, 64, 99, 0.2);
+}
+
+[data-theme='night'] .memories-eyebrow {
+  color: #f4cc77;
+  background: rgba(199, 181, 245, 0.18);
+  border-color: rgba(244, 204, 119, 0.3);
+}
+
+.memories-title {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  color: #5c4033;
+  margin: 0 0 1rem;
+  line-height: 1.2;
+}
+
+[data-theme='night'] .memories-title {
+  color: #fff8f1;
+}
+
+.memories-desc {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.1rem;
+  color: #7d5a49;
+  max-width: 540px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+[data-theme='night'] .memories-desc {
+  color: #c7b5f5;
+}
+
+/* Card Box */
+.memory-form-card {
+  background: rgba(255, 248, 241, 0.95);
+  backdrop-filter: blur(12px);
+  border-radius: 28px;
+  padding: 2.75rem 2.25rem;
+  border: 2px solid rgba(199, 181, 245, 0.5);
+  box-shadow: 0 16px 40px rgba(163, 64, 99, 0.08), 0 4px 12px rgba(92, 64, 51, 0.04);
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+[data-theme='night'] .memory-form-card {
+  background: rgba(33, 29, 58, 0.85);
+  border-color: rgba(199, 181, 245, 0.25);
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.4);
+}
+
+/* Form Styles */
+.memory-input-group {
+  margin-bottom: 1.25rem;
+}
+
+.memory-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Fredoka', cursive, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #5c4033;
+  margin-bottom: 0.65rem;
+}
+
+[data-theme='night'] .memory-label {
+  color: #f6dce8;
+}
+
+.char-counter {
+  font-family: 'Inter', monospace;
+  font-size: 0.825rem;
+  font-weight: 500;
+  color: #a34063;
+  opacity: 0.8;
+}
+
+[data-theme='night'] .char-counter {
+  color: #f4cc77;
+}
+
+.memory-textarea {
+  width: 100%;
+  min-height: 130px;
+  padding: 1.15rem 1.25rem;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #5c4033;
+  background: #fff8f1;
+  border: 2px solid rgba(199, 181, 245, 0.6);
+  border-radius: 18px;
+  outline: none;
+  resize: vertical;
+  transition: all 0.25s ease;
+  box-sizing: border-box;
+}
+
+[data-theme='night'] .memory-textarea {
+  background: #18142b;
+  color: #eee7ff;
+  border-color: rgba(199, 181, 245, 0.3);
+}
+
+.memory-textarea:focus {
+  border-color: #a34063;
+  box-shadow: 0 0 0 4px rgba(163, 64, 99, 0.15);
+}
+
+[data-theme='night'] .memory-textarea:focus {
+  border-color: #f4cc77;
+  box-shadow: 0 0 0 4px rgba(244, 204, 119, 0.2);
+}
+
+.memory-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.memory-submit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.75rem;
+  background: linear-gradient(135deg, #a34063 0%, #872e4e 100%);
+  color: #fff8f1;
+  font-family: 'Fredoka', cursive, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(163, 64, 99, 0.3);
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.memory-submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(163, 64, 99, 0.4);
+}
+
+.memory-submit-btn:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
+}
+
+.memory-submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Success Card */
+.memory-success-box {
+  text-align: center;
+  padding: 1rem 0.5rem;
+}
+
+.memory-success-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Fredoka', cursive, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #a34063;
+  background: rgba(246, 220, 232, 0.8);
+  padding: 0.6rem 1.4rem;
+  border-radius: 999px;
+  margin-bottom: 1.5rem;
+}
+
+[data-theme='night'] .memory-success-badge {
+  color: #f4cc77;
+  background: rgba(199, 181, 245, 0.18);
+}
+
+.memory-success-card {
+  background: #fff;
+  border: 2px dashed #f4cc77;
+  border-radius: 20px;
+  padding: 1.75rem 2rem;
+  margin: 0 auto 1.5rem;
+  max-width: 600px;
+  box-shadow: 0 8px 20px rgba(244, 204, 119, 0.15);
+  position: relative;
+}
+
+[data-theme='night'] .memory-success-card {
+  background: #18142b;
+  border-color: rgba(244, 204, 119, 0.4);
+}
+
+.memory-success-text {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  font-style: italic;
+  color: #5c4033;
+  margin: 0;
+}
+
+[data-theme='night'] .memory-success-text {
+  color: #eee7ff;
+}
+
+.memory-reset-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.6rem;
+  background: transparent;
+  color: #a34063;
+  border: 2px solid #a34063;
+  font-family: 'Fredoka', cursive, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+[data-theme='night'] .memory-reset-btn {
+  color: #f4cc77;
+  border-color: #f4cc77;
+}
+
+.memory-reset-btn:hover {
+  background: rgba(163, 64, 99, 0.1);
+  transform: translateY(-2px);
+}
+
+[data-theme='night'] .memory-reset-btn:hover {
+  background: rgba(244, 204, 119, 0.15);
+}
+
+/* Saved Memories Section */
+.saved-memories-wrapper {
+  margin-top: 3.5rem;
+}
+
+.saved-memories-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.saved-memories-title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 1.6rem;
+  color: #5c4033;
+  margin: 0;
+}
+
+[data-theme='night'] .saved-memories-title {
+  color: #fff8f1;
+}
+
+.clear-memories-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 1rem;
+  background: transparent;
+  border: 1px solid rgba(163, 64, 99, 0.3);
+  color: #a34063;
+  font-family: 'Fredoka', cursive, sans-serif;
+  font-size: 0.85rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+[data-theme='night'] .clear-memories-btn {
+  border-color: rgba(244, 204, 119, 0.3);
+  color: #f4cc77;
+}
+
+.clear-memories-btn:hover {
+  background: rgba(163, 64, 99, 0.15);
+  border-color: #a34063;
+}
+
+.saved-memories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.saved-memory-card {
+  background: rgba(255, 248, 241, 0.8);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  padding: 1.5rem;
+  border: 1px solid rgba(199, 181, 245, 0.5);
+  box-shadow: 0 4px 14px rgba(92, 64, 51, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+[data-theme='night'] .saved-memory-card {
+  background: rgba(33, 29, 58, 0.7);
+  border-color: rgba(199, 181, 245, 0.2);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
+}
+
+.saved-memory-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(163, 64, 99, 0.1);
+}
+
+.saved-memory-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+}
+
+.saved-memory-star {
+  font-size: 1.1rem;
+  color: #f4cc77;
+  filter: drop-shadow(0 0 6px rgba(244, 204, 119, 0.6));
+}
+
+.saved-memory-delete {
+  background: transparent;
+  border: none;
+  color: #a34063;
+  opacity: 0.6;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.saved-memory-delete:hover {
+  opacity: 1;
+  background: rgba(163, 64, 99, 0.15);
+  color: #a34063;
+}
+
+[data-theme='night'] .saved-memory-delete {
+  color: #f4cc77;
+}
+
+.saved-memory-text {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #5c4033;
+  margin: 0 0 1rem;
+  word-break: break-word;
+}
+
+[data-theme='night'] .saved-memory-text {
+  color: #eee7ff;
+}
+
+.saved-memory-date {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  color: #7d5a49;
+  opacity: 0.75;
+}
+
+[data-theme='night'] .saved-memory-date {
+  color: #c7b5f5;
+}
+
+.empty-memories-note {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  background: rgba(255, 248, 241, 0.5);
+  border-radius: 18px;
+  border: 1px dashed rgba(199, 181, 245, 0.5);
+  color: #7d5a49;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+}
+
+[data-theme='night'] .empty-memories-note {
+  background: rgba(33, 29, 58, 0.4);
+  color: #c7b5f5;
+  border-color: rgba(199, 181, 245, 0.2);
+}
+
+/* Privacy footer notice */
+.privacy-badge {
+  text-align: center;
+  margin-top: 2.5rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  color: #7d5a49;
+  opacity: 0.85;
+}
+
+[data-theme='night'] .privacy-badge {
+  color: #c7b5f5;
+}
+
+@media (max-width: 640px) {
+  .memory-form-card {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .saved-memories-grid {
+    grid-template-columns: 1fr;
+  }
+}

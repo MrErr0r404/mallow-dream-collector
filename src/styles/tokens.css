@@ -1,0 +1,123 @@
+/* ============================================
+   MALLOW — Design Tokens
+   haX.baby Hackathon 2026
+   ============================================ */
+
+:root {
+  /* === Day Mode Colors === */
+  --color-cream: #fff8f1;
+  --color-berry: #a34063;
+  --color-berry-dark: #8a3454;
+  --color-brown: #5c4033;
+  --color-lavender: #c7b5f5;
+  --color-lilac: #eee7ff;
+  --color-blush: #f6dce8;
+  --color-gold: #f4cc77;
+  --color-gold-bright: #ffd700;
+  --color-night: #211d3a;
+  --color-plum: #3d2145;
+  --color-white: #ffffff;
+
+  /* === Semantic Colors (Day) === */
+  --bg-primary: var(--color-cream);
+  --bg-secondary: var(--color-lilac);
+  --bg-card: var(--color-white);
+  --bg-card-hover: #fdf5ff;
+  --bg-nav: rgba(255, 248, 241, 0.92);
+  --text-primary: var(--color-brown);
+  --text-secondary: #7a6555;
+  --text-heading: var(--color-berry);
+  --text-accent: var(--color-berry);
+  --border-color: var(--color-lavender);
+  --border-dotted: var(--color-blush);
+  --shadow-soft: rgba(163, 64, 99, 0.08);
+  --shadow-card: 0 2px 16px rgba(163, 64, 99, 0.08);
+  --shadow-card-hover: 0 8px 32px rgba(163, 64, 99, 0.14);
+  --glow-lantern: rgba(244, 204, 119, 0.4);
+  --glow-star: rgba(244, 204, 119, 0.6);
+  --btn-primary-bg: var(--color-berry);
+  --btn-primary-text: var(--color-white);
+  --btn-primary-hover: var(--color-berry-dark);
+  --btn-secondary-bg: var(--color-lilac);
+  --btn-secondary-text: var(--color-berry);
+  --btn-secondary-hover: var(--color-lavender);
+  --input-bg: var(--color-white);
+  --input-border: var(--color-lavender);
+  --input-focus: var(--color-berry);
+  --particle-color: var(--color-gold);
+  --star-color: var(--color-gold);
+
+  /* === Typography === */
+  --font-display: 'DM Serif Display', 'Georgia', serif;
+  --font-playful: 'Fredoka', 'Nunito', sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 2rem;
+  --text-4xl: 2.5rem;
+  --text-5xl: 3.5rem;
+  --text-hero: clamp(2.5rem, 6vw, 4.5rem);
+
+  /* === Spacing === */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+  --space-section: clamp(4rem, 10vw, 8rem);
+
+  /* === Layout === */
+  --max-width: 1200px;
+  --max-width-narrow: 800px;
+  --nav-height: 72px;
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 20px;
+  --border-radius-xl: 28px;
+  --border-radius-full: 9999px;
+
+  /* === Transitions === */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+  --transition-theme: 600ms ease;
+}
+
+/* === Night Mode === */
+[data-theme="night"] {
+  --bg-primary: #1a1630;
+  --bg-secondary: #2a2445;
+  --bg-card: #252040;
+  --bg-card-hover: #2e2850;
+  --bg-nav: rgba(26, 22, 48, 0.95);
+  --text-primary: #e8e0f5;
+  --text-secondary: #b8aed0;
+  --text-heading: var(--color-gold);
+  --text-accent: var(--color-lavender);
+  --border-color: #3d3560;
+  --border-dotted: #4a4070;
+  --shadow-soft: rgba(0, 0, 0, 0.3);
+  --shadow-card: 0 2px 16px rgba(0, 0, 0, 0.3);
+  --shadow-card-hover: 0 8px 32px rgba(244, 204, 119, 0.12);
+  --glow-lantern: rgba(244, 204, 119, 0.6);
+  --glow-star: rgba(244, 204, 119, 0.8);
+  --btn-primary-bg: var(--color-gold);
+  --btn-primary-text: var(--color-night);
+  --btn-primary-hover: #e5bd68;
+  --btn-secondary-bg: #2e2850;
+  --btn-secondary-text: var(--color-lavender);
+  --btn-secondary-hover: #3d3560;
+  --input-bg: #252040;
+  --input-border: #3d3560;
+  --input-focus: var(--color-gold);
+  --particle-color: var(--color-gold);
+  --star-color: var(--color-gold-bright);
+}

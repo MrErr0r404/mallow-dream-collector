@@ -1,0 +1,764 @@
+/* ==========================================================================
+   CharacterSheet.css — Mallow Scrapbook Character Profile
+   ========================================================================== */
+
+:root {
+  --cs-cream: #fff8f1;
+  --cs-berry: #a34063;
+  --cs-berry-dark: #842e4d;
+  --cs-berry-light: #fbebf1;
+  --cs-brown: #5c4033;
+  --cs-brown-muted: #8c7263;
+  --cs-lavender: #c7b5f5;
+  --cs-lavender-deep: #7a63b8;
+  --cs-lilac: #eee7ff;
+  --cs-blush: #f6dce8;
+  --cs-blush-soft: #fff0f6;
+  --cs-gold: #f4cc77;
+  --cs-gold-dark: #c99c37;
+  --cs-night: #211d3a;
+  --cs-card-bg: #ffffff;
+  --cs-paper-bg: #fffdf9;
+  --cs-border-color: rgba(92, 64, 51, 0.18);
+  --cs-shadow-card: 0 10px 28px rgba(92, 64, 51, 0.08), 0 2px 6px rgba(92, 64, 51, 0.04);
+  --cs-shadow-hover: 0 16px 36px rgba(92, 64, 51, 0.14), 0 4px 12px rgba(92, 64, 51, 0.06);
+  --cs-tape-bg: rgba(246, 220, 232, 0.85);
+  --cs-tape-gold: rgba(244, 204, 119, 0.8);
+}
+
+[data-theme="night"] {
+  --cs-cream: #181528;
+  --cs-paper-bg: #211d3a;
+  --cs-card-bg: #292447;
+  --cs-brown: #f3ebfc;
+  --cs-brown-muted: #c7b5f5;
+  --cs-border-color: rgba(199, 181, 245, 0.25);
+  --cs-shadow-card: 0 10px 28px rgba(0, 0, 0, 0.35), 0 2px 6px rgba(0, 0, 0, 0.2);
+  --cs-shadow-hover: 0 16px 36px rgba(0, 0, 0, 0.45), 0 4px 12px rgba(0, 0, 0, 0.3);
+  --cs-tape-bg: rgba(163, 64, 99, 0.4);
+  --cs-tape-gold: rgba(244, 204, 119, 0.4);
+  --cs-berry-light: #3a2235;
+  --cs-blush-soft: #2e2038;
+}
+
+/* Base Section */
+.character-sheet-section {
+  position: relative;
+  padding: 5rem 1.5rem;
+  background-color: var(--cs-cream);
+  color: var(--cs-brown);
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Subtle background scrapbook grid / dot pattern */
+.character-sheet-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(var(--cs-border-color) 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.character-sheet-container {
+  position: relative;
+  max-width: 1140px;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+/* Section Header */
+.character-sheet-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.memory-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1.1rem;
+  background-color: var(--cs-lilac);
+  color: var(--cs-berry);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 9999px;
+  border: 1.5px dashed var(--cs-lavender);
+  box-shadow: 0 2px 8px rgba(163, 64, 99, 0.08);
+  margin-bottom: 0.85rem;
+}
+
+.memory-badge-icon {
+  width: 14px;
+  height: 14px;
+  color: var(--cs-gold-dark);
+}
+
+.character-sheet-title {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  color: var(--cs-berry);
+  line-height: 1.15;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.character-sheet-subtitle {
+  font-size: 1.1rem;
+  color: var(--cs-brown-muted);
+  max-width: 580px;
+  margin: 0 auto;
+  font-weight: 400;
+}
+
+/* Two-Column Scrapbook Grid */
+.scrapbook-layout {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+@media (max-width: 980px) {
+  .scrapbook-layout {
+    grid-template-columns: 360px 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 820px) {
+  .scrapbook-layout {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+/* ==========================================================================
+   Left Column: Character Card
+   ========================================================================== */
+
+.character-card {
+  position: relative;
+  background-color: var(--cs-paper-bg);
+  border: 2px dashed var(--cs-border-color);
+  border-radius: 24px;
+  padding: 2.2rem 1.8rem 1.8rem;
+  box-shadow: var(--cs-shadow-card);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.character-card:hover {
+  transform: translateY(-4px) rotate(-0.5deg);
+  box-shadow: var(--cs-shadow-hover);
+}
+
+/* Scrapbook Washi Tape */
+.washi-tape {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-1deg);
+  width: 110px;
+  height: 24px;
+  background-color: var(--cs-tape-bg);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+  border-left: 2px solid rgba(255, 255, 255, 0.4);
+  border-right: 2px solid rgba(255, 255, 255, 0.4);
+  z-index: 3;
+  backdrop-filter: blur(2px);
+  clip-path: polygon(4% 0%, 96% 0%, 100% 100%, 0% 100%);
+}
+
+.washi-tape-alt {
+  background-color: var(--cs-tape-gold);
+  transform: translateX(-50%) rotate(1.2deg);
+}
+
+/* Specimen Stamp Badge */
+.stamp-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.8rem;
+  border: 1px dashed var(--cs-berry);
+  border-radius: 6px;
+  color: var(--cs-berry);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1.4rem;
+  background-color: var(--cs-blush-soft);
+}
+
+/* Expression Frame & Sparkles Container */
+.expression-viewport-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+/* Floating Sparkle Particles */
+.card-sparkles-wrap {
+  position: absolute;
+  inset: -16px;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.sparkle-particle {
+  position: absolute;
+  font-size: 1rem;
+  animation: sparkleFloat 1.8s ease-in-out infinite alternate;
+}
+
+.sparkle-p1 { top: -4px; left: 10px; animation-delay: 0s; color: var(--cs-gold); }
+.sparkle-p2 { top: 12px; right: 4px; animation-delay: 0.3s; color: var(--cs-berry); }
+.sparkle-p3 { bottom: 10px; left: -2px; animation-delay: 0.6s; color: var(--cs-lavender); }
+.sparkle-p4 { bottom: -6px; right: 18px; animation-delay: 0.9s; color: var(--cs-gold); }
+
+@keyframes sparkleFloat {
+  0% { transform: translateY(0) scale(0.9); opacity: 0.6; }
+  100% { transform: translateY(-8px) scale(1.15); opacity: 1; }
+}
+
+/* Expression Image Box (2x2 Quadrant Crop) */
+.expression-image {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 16px;
+  background-color: var(--cs-lilac);
+  border: 3px solid var(--cs-cream);
+  box-shadow: 0 6px 18px rgba(92, 64, 51, 0.12);
+  position: relative;
+  display: flex;
+}
+
+.expression-image img {
+  width: 200%;
+  height: 200%;
+  max-width: none;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform;
+}
+
+/* SVG Fallback if image isn't loaded */
+.expression-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 50% 40%, var(--cs-lilac) 0%, var(--cs-blush) 100%);
+  padding: 1rem;
+  text-align: center;
+}
+
+.fallback-ghost-icon {
+  width: 80px;
+  height: 80px;
+  filter: drop-shadow(0 4px 8px rgba(163, 64, 99, 0.18));
+}
+
+.fallback-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--cs-berry);
+  margin-top: 0.4rem;
+}
+
+/* Expression Thought/Speech Message */
+.expression-message-card {
+  width: 100%;
+  position: relative;
+  background-color: var(--cs-card-bg);
+  border: 1.5px solid var(--cs-border-color);
+  border-radius: 14px;
+  padding: 0.9rem 1.1rem;
+  margin-bottom: 1.5rem;
+  min-height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(92, 64, 51, 0.05);
+}
+
+.expression-message-card::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid var(--cs-border-color);
+}
+
+.expression-message-card::after {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid var(--cs-card-bg);
+}
+
+.expression-message-text {
+  font-size: 0.92rem;
+  color: var(--cs-brown);
+  line-height: 1.45;
+  font-style: italic;
+  margin: 0;
+}
+
+/* Expression Selector Buttons (4 in a row) */
+.expression-selector {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.45rem;
+}
+
+.expression-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  min-height: 48px;
+  min-width: 44px;
+  padding: 0.5rem 0.3rem;
+  border-radius: 12px;
+  border: 1.5px solid var(--cs-border-color);
+  background-color: var(--cs-card-bg);
+  color: var(--cs-brown);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 500;
+  transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+  outline: none;
+  touch-action: manipulation;
+}
+
+.expression-btn:hover {
+  background-color: var(--cs-blush-soft);
+  border-color: var(--cs-berry);
+  transform: translateY(-2px);
+}
+
+.expression-btn:focus-visible {
+  box-shadow: 0 0 0 3px var(--cs-lavender), 0 0 0 1px var(--cs-berry);
+}
+
+.expression-btn.active {
+  background-color: var(--cs-berry);
+  border-color: var(--cs-berry-dark);
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(163, 64, 99, 0.3);
+  transform: translateY(-2px) scale(1.04);
+}
+
+.expression-btn-emoji {
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.expression-btn-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+}
+
+/* ==========================================================================
+   Right Column: Character Info
+   ========================================================================== */
+
+.character-info-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+/* Name & Title Block */
+.profile-title-card {
+  position: relative;
+  background-color: var(--cs-paper-bg);
+  border: 2px dashed var(--cs-border-color);
+  border-radius: 20px;
+  padding: 1.8rem 2rem;
+  box-shadow: var(--cs-shadow-card);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-title-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--cs-shadow-hover);
+}
+
+.profile-name-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.3rem;
+}
+
+.character-name {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(2.4rem, 4.2vw, 3.2rem);
+  color: var(--cs-berry);
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.character-collector-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--cs-lavender-deep);
+  background-color: var(--cs-lilac);
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.character-subtitle-text {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--cs-brown-muted);
+  margin: 0;
+}
+
+/* Info Grid (Species, Home, Job) */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.9rem;
+}
+
+@media (max-width: 640px) {
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+}
+
+.info-card {
+  background-color: var(--cs-card-bg);
+  border: 1.5px solid var(--cs-border-color);
+  border-radius: 16px;
+  padding: 1rem 1.1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  box-shadow: 0 4px 14px rgba(92, 64, 51, 0.04);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--cs-shadow-hover);
+  border-color: var(--cs-lavender);
+}
+
+.info-icon-bubble {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background-color: var(--cs-lilac);
+  color: var(--cs-berry);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.info-icon-bubble.bubble-gold {
+  background-color: #fff6e0;
+  color: var(--cs-gold-dark);
+}
+
+.info-icon-bubble.bubble-lavender {
+  background-color: var(--cs-lilac);
+  color: var(--cs-lavender-deep);
+}
+
+.info-icon-bubble.bubble-berry {
+  background-color: var(--cs-berry-light);
+  color: var(--cs-berry);
+}
+
+.info-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--cs-brown-muted);
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.info-value {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--cs-brown);
+  line-height: 1.3;
+}
+
+/* Scrapbook Info Section Cards */
+.scrapbook-card {
+  background-color: var(--cs-paper-bg);
+  border: 2px dashed var(--cs-border-color);
+  border-radius: 18px;
+  padding: 1.4rem 1.6rem;
+  box-shadow: var(--cs-shadow-card);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.scrapbook-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--cs-shadow-hover);
+}
+
+.scrapbook-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.95rem;
+}
+
+.card-header-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--cs-berry);
+  flex-shrink: 0;
+}
+
+.scrapbook-card-title {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 1.25rem;
+  color: var(--cs-berry);
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+/* Personality Tags */
+.personality-pill-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.personality-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.42rem 0.95rem;
+  background-color: var(--cs-card-bg);
+  border: 1.5px solid var(--cs-border-color);
+  border-radius: 999px;
+  color: var(--cs-brown);
+  font-size: 0.85rem;
+  font-weight: 500;
+  box-shadow: 0 2px 6px rgba(92, 64, 51, 0.04);
+  transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: default;
+}
+
+.personality-pill:hover {
+  background-color: var(--cs-blush-soft);
+  border-color: var(--cs-berry);
+  color: var(--cs-berry);
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 4px 10px rgba(163, 64, 99, 0.12);
+}
+
+/* Quirks Section (Italic Handwritten / Journal Style) */
+.quirks-container {
+  background-color: var(--cs-card-bg);
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  border-left: 3px solid var(--cs-gold);
+}
+
+.quirks-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.quirk-item {
+  position: relative;
+  padding-left: 1.5rem;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--cs-brown);
+  line-height: 1.45;
+}
+
+.quirk-item::before {
+  content: '✧';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--cs-gold-dark);
+  font-style: normal;
+  font-weight: bold;
+}
+
+/* Favorites Section (Cards / Tags) */
+.favorites-tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.favorite-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.85rem;
+  background-color: var(--cs-card-bg);
+  border: 1px dashed var(--cs-lavender);
+  border-radius: 10px;
+  color: var(--cs-brown);
+  font-size: 0.84rem;
+  font-weight: 500;
+  box-shadow: 0 2px 6px rgba(199, 181, 245, 0.12);
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.favorite-tag:hover {
+  background-color: var(--cs-lilac);
+  border-color: var(--cs-lavender-deep);
+  color: var(--cs-berry);
+  transform: translateY(-2px) rotate(-1deg);
+}
+
+.favorite-tag-icon {
+  width: 12px;
+  height: 12px;
+  color: var(--cs-gold-dark);
+}
+
+/* Abilities Section (Star-Bullet List) */
+.abilities-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem 1.2rem;
+}
+
+@media (max-width: 600px) {
+  .abilities-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ability-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--cs-brown);
+  line-height: 1.4;
+}
+
+.ability-star-icon {
+  width: 16px;
+  height: 16px;
+  color: var(--cs-gold);
+  fill: var(--cs-gold);
+  flex-shrink: 0;
+  margin-top: 2px;
+  filter: drop-shadow(0 1px 3px rgba(244, 204, 119, 0.4));
+}
+
+/* Decorative Footer Tape / Stamp */
+.scrapbook-footer-decor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 3rem;
+  color: var(--cs-brown-muted);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.footer-decor-line {
+  flex: 1;
+  max-width: 120px;
+  height: 1px;
+  background: repeating-linear-gradient(
+    to right,
+    var(--cs-border-color),
+    var(--cs-border-color) 4px,
+    transparent 4px,
+    transparent 8px
+  );
+}
+
+/* Reduced Motion for Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .character-card,
+  .profile-title-card,
+  .info-card,
+  .scrapbook-card,
+  .expression-btn,
+  .personality-pill,
+  .favorite-tag {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+  }
+  .expression-image img {
+    transition: none !important;
+    animation: none !important;
+  }
+  .sparkle-particle {
+    animation: none !important;
+  }
+}

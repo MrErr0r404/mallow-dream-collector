@@ -1,0 +1,293 @@
+/* ==========================================================================
+   Footer Component Styles
+   Theme tokens:
+   - Warm cream: #fff8f1
+   - Rich berry: #a34063
+   - Warm brown: #5c4033
+   - Lavender: #c7b5f5
+   - Pale lilac: #eee7ff
+   - Blush pink: #f6dce8
+   - Warm gold: #f4cc77
+   - Deep night purple: #211d3a
+   ========================================================================== */
+
+.footer-section {
+  position: relative;
+  background: #211d3a;
+  color: #fff8f1;
+  padding: 5rem 1.5rem 3.5rem;
+  overflow: hidden;
+}
+
+[data-theme='day'] .footer-section {
+  background: linear-gradient(180deg, #fff8f1 0%, #eee7ff 40%, #f6dce8 100%);
+  color: #5c4033;
+}
+
+/* Dotted divider above footer */
+.footer-dotted-divider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background-image: radial-gradient(circle, #f4cc77 2px, transparent 2px);
+  background-size: 24px 20px;
+  opacity: 0.6;
+}
+
+.footer-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* Warm Message from Mallow */
+.footer-mallow-message-box {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px dashed rgba(244, 204, 119, 0.4);
+  border-radius: 28px;
+  padding: 2.25rem 2.5rem;
+  margin-bottom: 3.5rem;
+  max-width: 720px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+[data-theme='day'] .footer-mallow-message-box {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(163, 64, 99, 0.25);
+  box-shadow: 0 8px 25px rgba(163, 64, 99, 0.06);
+}
+
+.footer-avatar {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+  filter: drop-shadow(0 4px 10px rgba(244, 204, 119, 0.4));
+  animation: floatMallowIcon 4s infinite ease-in-out;
+}
+
+.footer-mallow-quote {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+  line-height: 1.6;
+  color: #fff8f1;
+  margin: 0 0 0.85rem;
+  font-style: italic;
+}
+
+[data-theme='day'] .footer-mallow-quote {
+  color: #5c4033;
+}
+
+.footer-mallow-signature {
+  font-family: 'Fredoka', cursive, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #f4cc77;
+  letter-spacing: 0.05em;
+}
+
+[data-theme='day'] .footer-mallow-signature {
+  color: #a34063;
+}
+
+/* Navigation Links */
+.footer-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.75rem;
+  margin-bottom: 3rem;
+}
+
+.footer-nav-link {
+  background: none;
+  border: none;
+  font-family: 'Fredoka', cursive, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #c7b5f5;
+  cursor: pointer;
+  padding: 0.35rem 0.6rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+[data-theme='day'] .footer-nav-link {
+  color: #5c4033;
+}
+
+.footer-nav-link:hover {
+  color: #f4cc77;
+  transform: translateY(-2px);
+}
+
+[data-theme='day'] .footer-nav-link:hover {
+  color: #a34063;
+}
+
+/* Visitor Counter Integration */
+.footer-counter-block {
+  margin-bottom: 3.5rem;
+}
+
+/* Easter Egg Star Trigger */
+.footer-easter-egg-wrapper {
+  margin-bottom: 2.5rem;
+}
+
+.easter-egg-star-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: #f4cc77;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  outline: none;
+}
+
+.easter-egg-star-btn:hover {
+  transform: scale(1.3) rotate(25deg);
+  color: #fff;
+  box-shadow: 0 0 16px rgba(244, 204, 119, 0.6);
+  border-color: rgba(244, 204, 119, 0.4);
+}
+
+.easter-egg-star-btn:active {
+  transform: scale(1.1) rotate(50deg);
+}
+
+.easter-egg-star-btn:focus-visible {
+  box-shadow: 0 0 0 3px rgba(244, 204, 119, 0.5);
+}
+
+.easter-egg-hint {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  color: #c7b5f5;
+  margin-top: 0.4rem;
+  opacity: 0.65;
+}
+
+[data-theme='day'] .easter-egg-hint {
+  color: #7d5a49;
+}
+
+/* Back to Top Button */
+.back-to-top-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(199, 181, 245, 0.3);
+  color: #eee7ff;
+  font-family: 'Fredoka', cursive, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.65rem 1.4rem;
+  border-radius: 999px;
+  cursor: pointer;
+  margin-bottom: 3.5rem;
+  transition: all 0.25s ease;
+}
+
+[data-theme='day'] .back-to-top-btn {
+  background: rgba(163, 64, 99, 0.08);
+  border-color: rgba(163, 64, 99, 0.25);
+  color: #a34063;
+}
+
+.back-to-top-btn:hover {
+  background: rgba(244, 204, 119, 0.2);
+  border-color: #f4cc77;
+  color: #f4cc77;
+  transform: translateY(-3px);
+}
+
+[data-theme='day'] .back-to-top-btn:hover {
+  background: #a34063;
+  color: #fff8f1;
+}
+
+/* Credits Section */
+.footer-credits {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 2rem;
+  width: 100%;
+}
+
+[data-theme='day'] .footer-credits {
+  border-top-color: rgba(92, 64, 51, 0.12);
+}
+
+.credits-highlight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  font-family: 'Fredoka', cursive, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #f4cc77;
+  margin-bottom: 1rem;
+}
+
+[data-theme='day'] .credits-highlight {
+  color: #a34063;
+}
+
+.credits-heart-icon {
+  color: #a34063;
+  fill: #a34063;
+  animation: heartPulse 1.6s infinite ease-in-out;
+}
+
+.credits-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.8rem;
+  color: #c7b5f5;
+  opacity: 0.85;
+  line-height: 1.5;
+}
+
+[data-theme='day'] .credits-list {
+  color: #7d5a49;
+}
+
+@keyframes floatMallowIcon {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes heartPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+@media (max-width: 600px) {
+  .footer-mallow-message-box {
+    padding: 1.75rem 1.25rem;
+  }
+  .footer-nav {
+    gap: 1rem;
+  }
+}

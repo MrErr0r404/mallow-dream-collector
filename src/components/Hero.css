@@ -1,0 +1,601 @@
+/* ==========================================================================
+   Hero.css — Mallow, The Little Dream Collector
+   Key Design Tokens:
+   Warm cream: #fff8f1 | Rich berry: #a34063 | Warm brown: #5c4033
+   Lavender: #c7b5f5 | Pale lilac: #eee7ff | Blush pink: #f6dce8
+   Warm gold: #f4cc77 | Deep night purple: #211d3a
+   ========================================================================== */
+
+:root {
+  --nav-height: 72px;
+  --bg-primary: #fff8f1;
+  --bg-card: rgba(255, 255, 255, 0.7);
+  --text-primary: #5c4033;
+  --text-secondary: #7e5e4f;
+  --text-muted: #9f8274;
+  --accent-berry: #a34063;
+  --accent-berry-hover: #8e3454;
+  --warm-gold: #f4cc77;
+  --warm-gold-hover: #e8bd5e;
+  --star-color: #f4cc77;
+  --lavender: #c7b5f5;
+  --pale-lilac: #eee7ff;
+  --blush-pink: #f6dce8;
+  --night-purple: #211d3a;
+  --font-heading: 'DM Serif Display', Georgia, serif;
+  --font-ui: 'Fredoka', 'Inter', -apple-system, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --hero-shadow: 0 24px 60px -15px rgba(163, 64, 99, 0.15);
+}
+
+[data-theme='night'] {
+  --bg-primary: #211d3a;
+  --bg-card: rgba(43, 38, 72, 0.75);
+  --text-primary: #fff8f1;
+  --text-secondary: #e2d9f7;
+  --text-muted: #b5a5dd;
+  --accent-berry: #f4cc77;
+  --accent-berry-hover: #ffd98a;
+  --warm-gold: #f4cc77;
+  --star-color: #ffe08a;
+  --lavender: #a894e6;
+  --hero-shadow: 0 24px 60px -15px rgba(244, 204, 119, 0.15);
+}
+
+/* --------------------------------------------------------------------------
+   Hero Container & Layout
+   -------------------------------------------------------------------------- */
+.hero-section {
+  position: relative;
+  min-height: calc(100vh - var(--nav-height, 72px));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 2rem 2rem;
+  background: radial-gradient(
+      circle at 20% 20%,
+      rgba(238, 231, 255, 0.55) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(246, 220, 232, 0.45) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(244, 204, 119, 0.15) 0%,
+      transparent 65%
+    );
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+[data-theme='night'] .hero-section {
+  background: radial-gradient(
+      circle at 25% 25%,
+      rgba(199, 181, 245, 0.16) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      circle at 75% 75%,
+      rgba(244, 204, 119, 0.12) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at 50% 10%,
+      rgba(163, 64, 99, 0.15) 0%,
+      transparent 50%
+    );
+}
+
+.hero-content-wrapper {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3.5rem;
+  position: relative;
+  z-index: 2;
+  flex: 1;
+}
+
+/* --------------------------------------------------------------------------
+   Left Column: Text Content
+   -------------------------------------------------------------------------- */
+.hero-text-col {
+  flex: 1.1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.35rem;
+}
+
+/* Label Badge */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 1rem;
+  background: rgba(244, 204, 119, 0.28);
+  border: 1px solid rgba(244, 204, 119, 0.5);
+  border-radius: 999px;
+  color: var(--accent-berry);
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 2px 10px rgba(244, 204, 119, 0.2);
+}
+
+[data-theme='night'] .hero-badge {
+  background: rgba(244, 204, 119, 0.15);
+  color: var(--warm-gold);
+  border-color: rgba(244, 204, 119, 0.35);
+}
+
+.hero-badge-sparkle {
+  color: var(--warm-gold);
+  animation: pulseSparkle 2s ease-in-out infinite;
+}
+
+@keyframes pulseSparkle {
+  0%, 100% { transform: scale(1); opacity: 0.85; }
+  50% { transform: scale(1.25); opacity: 1; }
+}
+
+/* Main Heading */
+.hero-heading {
+  font-family: var(--font-heading);
+  font-size: 3.6rem;
+  line-height: 1.12;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: -0.015em;
+  text-shadow: 0 2px 20px rgba(163, 64, 99, 0.06);
+}
+
+.hero-heading-highlight {
+  color: var(--accent-berry);
+  font-style: italic;
+  position: relative;
+  display: inline-block;
+}
+
+/* Subheading */
+.hero-subheading {
+  font-family: var(--font-body);
+  font-size: 1.22rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  max-width: 520px;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Button Group */
+.hero-button-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.hero-btn {
+  font-family: var(--font-ui);
+  font-size: 1.05rem;
+  font-weight: 600;
+  padding: 0.85rem 1.75rem;
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  border: 2px solid transparent;
+}
+
+.hero-btn:focus-visible {
+  outline: 3px solid var(--warm-gold);
+  outline-offset: 3px;
+}
+
+.hero-btn-primary {
+  background: var(--accent-berry);
+  color: #fff8f1;
+  box-shadow: 0 8px 24px -4px rgba(163, 64, 99, 0.35);
+}
+
+.hero-btn-primary:hover {
+  background: var(--accent-berry-hover);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 12px 28px -4px rgba(163, 64, 99, 0.45);
+}
+
+.hero-btn-primary:active {
+  transform: translateY(0) scale(0.98);
+}
+
+[data-theme='night'] .hero-btn-primary {
+  background: var(--warm-gold);
+  color: #211d3a;
+  box-shadow: 0 8px 25px -4px rgba(244, 204, 119, 0.4);
+}
+
+[data-theme='night'] .hero-btn-primary:hover {
+  background: var(--warm-gold-hover);
+  box-shadow: 0 12px 30px -4px rgba(244, 204, 119, 0.55);
+}
+
+.hero-btn-secondary {
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--text-primary);
+  border-color: rgba(163, 64, 99, 0.22);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.hero-btn-secondary:hover {
+  background: var(--pale-lilac);
+  border-color: var(--lavender);
+  color: var(--accent-berry);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 20px -4px rgba(199, 181, 245, 0.35);
+}
+
+.hero-btn-secondary:active {
+  transform: translateY(0) scale(0.98);
+}
+
+[data-theme='night'] .hero-btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(199, 181, 245, 0.28);
+  color: var(--text-primary);
+}
+
+[data-theme='night'] .hero-btn-secondary:hover {
+  background: rgba(199, 181, 245, 0.2);
+  color: #fff8f1;
+}
+
+/* Handwritten Note */
+.hero-handwritten-note {
+  font-family: var(--font-ui);
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-style: italic;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: -0.2rem;
+  letter-spacing: 0.01em;
+}
+
+.hero-note-heart {
+  color: #e27d98;
+  display: inline-block;
+  animation: heartPulse 2.2s ease-in-out infinite;
+}
+
+@keyframes heartPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.22); }
+}
+
+/* --------------------------------------------------------------------------
+   Right Column: Mallow Illustration & Floating Stars
+   -------------------------------------------------------------------------- */
+.hero-image-col {
+  flex: 0.9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Outer pointer-reactive frame */
+.mallow-pointer-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s cubic-bezier(0.2, 0, 0.2, 1);
+  will-change: transform;
+}
+
+/* Floating animation wrapper */
+.mallow-float-wrapper {
+  position: relative;
+  animation: mallowFloat 4s ease-in-out infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes mallowFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-16px) rotate(1deg);
+  }
+}
+
+/* Lantern Glow Effect (CSS box-shadow pulse) */
+.mallow-lantern-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(244, 204, 119, 0.35) 0%,
+    rgba(199, 181, 245, 0.25) 40%,
+    transparent 70%
+  );
+  animation: lanternGlowPulse 3.8s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes lanternGlowPulse {
+  0%, 100% {
+    opacity: 0.7;
+    transform: translate(-50%, -50%) scale(0.95);
+    box-shadow: 0 0 50px rgba(244, 204, 119, 0.35),
+                0 0 90px rgba(199, 181, 245, 0.25);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.08);
+    box-shadow: 0 0 85px rgba(244, 204, 119, 0.65),
+                0 0 130px rgba(199, 181, 245, 0.45);
+  }
+}
+
+/* Character Image Frame */
+.mallow-image-frame {
+  position: relative;
+  z-index: 2;
+  width: 360px;
+  height: 360px;
+  max-width: 82vw;
+  max-height: 82vw;
+  border-radius: 42px;
+  padding: 8px;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.65),
+    rgba(199, 181, 245, 0.35)
+  );
+  box-shadow: var(--hero-shadow), 0 0 35px rgba(244, 204, 119, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+[data-theme='night'] .mallow-image-frame {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.12),
+    rgba(199, 181, 245, 0.18)
+  );
+  border: 1px solid rgba(199, 181, 245, 0.25);
+}
+
+.mallow-image-frame:hover {
+  box-shadow: 0 28px 70px -10px rgba(163, 64, 99, 0.25),
+              0 0 50px rgba(244, 204, 119, 0.45);
+}
+
+/* Click Bounce Animation */
+.mallow-image-frame.bounce-active {
+  animation: mallowBounce 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+@keyframes mallowBounce {
+  0% { transform: scale(1); }
+  35% { transform: scale(1.12) rotate(-3deg); }
+  60% { transform: scale(0.95) rotate(2deg); }
+  85% { transform: scale(1.04) rotate(-1deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+.mallow-character-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 36px;
+  display: block;
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   Floating Stars
+   -------------------------------------------------------------------------- */
+.floating-star {
+  position: absolute;
+  color: var(--star-color);
+  user-select: none;
+  pointer-events: none;
+  z-index: 3;
+  line-height: 1;
+  text-shadow: 0 0 12px rgba(244, 204, 119, 0.8);
+  animation-name: starFloatTwinkle;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes starFloatTwinkle {
+  0%, 100% {
+    transform: translateY(0) scale(1) rotate(0deg);
+    opacity: var(--star-base-opacity, 0.85);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.22) rotate(16deg);
+    opacity: 1;
+    filter: drop-shadow(0 0 10px var(--warm-gold));
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Scroll Cue Component
+   -------------------------------------------------------------------------- */
+.hero-scroll-cue-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2rem;
+  position: relative;
+  z-index: 5;
+}
+
+.hero-scroll-cue {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-family: var(--font-ui);
+  font-size: 0.86rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  transition: all 0.2s ease;
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+.hero-scroll-cue:hover {
+  color: var(--accent-berry);
+  transform: translateY(2px);
+}
+
+.hero-scroll-cue:focus-visible {
+  outline: 2px solid var(--accent-berry);
+  outline-offset: 3px;
+}
+
+.scroll-cue-icon {
+  transition: transform 0.2s ease;
+}
+
+@keyframes scrollBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(7px);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Styles
+   -------------------------------------------------------------------------- */
+@media (max-width: 960px) {
+  .hero-content-wrapper {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 2.5rem;
+  }
+
+  .hero-text-col {
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-heading {
+    font-size: 2.85rem;
+  }
+
+  .hero-subheading {
+    font-size: 1.1rem;
+    max-width: 100%;
+  }
+
+  .hero-button-group {
+    justify-content: center;
+  }
+
+  .mallow-image-frame,
+  .hero-image-frame {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-section {
+    padding: 2rem 1.25rem 1.5rem;
+  }
+
+  .hero-heading {
+    font-size: 2.35rem;
+  }
+
+  .hero-subheading {
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .hero-button-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+  }
+
+  .hero-btn {
+    width: 100%;
+  }
+
+  .mallow-image-frame,
+  .hero-image-frame {
+    width: 250px;
+    height: 250px;
+    border-radius: 32px;
+  }
+
+  .mallow-lantern-glow {
+    width: 240px;
+    height: 240px;
+  }
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .mallow-float-wrapper,
+  .mallow-lantern-glow,
+  .floating-star,
+  .hero-scroll-cue,
+  .hero-badge-sparkle,
+  .hero-note-heart {
+    animation: none !important;
+  }
+  .mallow-pointer-wrapper {
+    transform: none !important;
+  }
+}

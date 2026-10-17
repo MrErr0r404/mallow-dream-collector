@@ -1,0 +1,149 @@
+/* ==========================================================================
+   VisitorCounter Component Styles
+   Retro Hit Counter Odometer / LED Segmented display
+   ========================================================================== */
+
+.visitor-counter-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  background: #151226;
+  padding: 1rem 1.4rem;
+  border-radius: 16px;
+  border: 2px solid #3d2d5a;
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.45),
+    inset 0 1px 2px rgba(255, 255, 255, 0.15),
+    0 0 12px rgba(199, 181, 245, 0.1);
+  color: #fff8f1;
+  position: relative;
+  user-select: none;
+}
+
+.counter-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.65rem;
+}
+
+.counter-led-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #f4cc77;
+  box-shadow: 0 0 8px #f4cc77, 0 0 14px rgba(244, 204, 119, 0.8);
+  animation: ledPulse 2s infinite ease-in-out;
+}
+
+.counter-label {
+  font-family: 'Fredoka', 'Courier New', monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #f4cc77;
+  text-shadow: 0 0 6px rgba(244, 204, 119, 0.4);
+}
+
+/* Odometer Row */
+.odometer-display {
+  display: flex;
+  gap: 5px;
+  background: #0d0a1a;
+  padding: 6px 8px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+/* Individual digit box */
+.odometer-digit-box {
+  width: 28px;
+  height: 42px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #1b162f 0%, #0d0a1a 50%, #17122a 100%);
+  border-radius: 6px;
+  border: 1px solid #372952;
+  box-shadow: 
+    inset 0 1px 1px rgba(255, 255, 255, 0.2),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.6),
+    0 2px 4px rgba(0,0,0,0.5);
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+/* Shadow gradient over digit for drum 3D effect */
+.odometer-digit-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.85) 0%, transparent 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.odometer-digit-box::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.85) 0%, transparent 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* The vertical ribbon with numbers 0-9 */
+.odometer-digit-strip {
+  display: flex;
+  flex-direction: column;
+  transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+}
+
+.odometer-number {
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Fredoka', 'Consolas', 'Courier New', monospace;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #eee7ff;
+  text-shadow: 0 0 6px rgba(238, 231, 255, 0.6), 0 0 12px rgba(199, 181, 245, 0.4);
+}
+
+/* Small Subtitle */
+.counter-footer {
+  margin-top: 0.5rem;
+}
+
+.counter-sublabel {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.68rem;
+  color: #c7b5f5;
+  opacity: 0.7;
+  letter-spacing: 0.05em;
+}
+
+@keyframes ledPulse {
+  0%, 100% { opacity: 0.85; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.85); }
+}
+
+@media (max-width: 480px) {
+  .odometer-digit-box {
+    width: 24px;
+    height: 36px;
+  }
+  .odometer-number {
+    height: 36px;
+    font-size: 1.25rem;
+  }
+}

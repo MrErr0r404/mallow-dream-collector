@@ -1,0 +1,23 @@
+{
+  "name": "mallow-dream-collector",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Mallow, The Little Dream Collector — haX.baby Baby's First Website Hackathon 2026",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "motion": "^11.15.0",
+    "lucide-react": "^0.460.0",
+    "canvas-confetti": "^1.9.3"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^6.0.0"
+  }
+}

@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <defs>
+    <radialGradient id="heroSkyGrad" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#eee7ff"/>
+      <stop offset="60%" stop-color="#d8c8f8"/>
+      <stop offset="100%" stop-color="#bba4ec"/>
+    </radialGradient>
+    <radialGradient id="heroBodyGrad" cx="45%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="65%" stop-color="#e4d8fb"/>
+      <stop offset="100%" stop-color="#c7b5f5"/>
+    </radialGradient>
+    <radialGradient id="heroStarGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fff5cc"/>
+      <stop offset="60%" stop-color="#f4cc77"/>
+      <stop offset="100%" stop-color="#e5b342"/>
+    </radialGradient>
+    <filter id="heroSoftGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background Sky Disc -->
+  <circle cx="250" cy="250" r="235" fill="url(#heroSkyGrad)"/>
+
+  <!-- Dream Bubbles & Stardust -->
+  <circle cx="110" cy="180" r="34" fill="#ffffff" opacity="0.4"/>
+  <circle cx="390" cy="140" r="42" fill="#ffffff" opacity="0.3"/>
+  <circle cx="100" cy="360" r="46" fill="#f4cc77" opacity="0.25"/>
+  <circle cx="410" cy="330" r="30" fill="#f6dce8" opacity="0.45"/>
+  <circle cx="230" cy="80" r="16" fill="#ffffff" opacity="0.5"/>
+  <polygon points="120,110 123,117 130,118 125,123 126,130 120,126 114,130 115,123 110,118 117,117" fill="#f4cc77" opacity="0.8"/>
+  <polygon points="380,240 382,246 388,247 384,251 385,257 380,254 375,257 376,251 372,247 378,246" fill="#f4cc77" opacity="0.8"/>
+
+  <!-- Mallow Body -->
+  <ellipse cx="250" cy="225" rx="135" ry="150" fill="url(#heroBodyGrad)"/>
+  <!-- Ghost Wavy Skirt -->
+  <path d="M120 280 C130 380 170 385 200 330 C225 385 275 385 300 330 C330 385 370 380 380 280 Z" fill="url(#heroBodyGrad)"/>
+
+  <!-- Cute ghost arms holding lantern -->
+  <ellipse cx="195" cy="265" rx="35" ry="22" transform="rotate(25 195 265)" fill="#f3edff"/>
+  <ellipse cx="305" cy="265" rx="35" ry="22" transform="rotate(-25 305 265)" fill="#f3edff"/>
+
+  <!-- Large Plum Eyes with Highlights -->
+  <ellipse cx="205" cy="205" rx="22" ry="27" fill="#211d3a"/>
+  <ellipse cx="295" cy="205" rx="22" ry="27" fill="#211d3a"/>
+  <!-- Sparkles inside eyes -->
+  <polygon points="196,195 198,199 203,200 199,203 200,208 196,205 192,208 193,203 189,200 194,199" fill="#f4cc77"/>
+  <circle cx="212" cy="216" r="5" fill="#ffffff"/>
+  <polygon points="286,195 288,199 293,200 289,203 290,208 286,205 282,208 283,203 279,200 284,199" fill="#f4cc77"/>
+  <circle cx="302" cy="216" r="5" fill="#ffffff"/>
+
+  <!-- Happy Smile -->
+  <path d="M238 234 Q250 246 262 234" stroke="#5c4033" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Blush Cheeks -->
+  <ellipse cx="165" cy="235" rx="22" ry="12" fill="#f6dce8" opacity="0.9"/>
+  <ellipse cx="335" cy="235" rx="22" ry="12" fill="#f6dce8" opacity="0.9"/>
+
+  <!-- Forehead Star with Glow -->
+  <g filter="url(#heroSoftGlow)">
+    <polygon points="250,95 258,125 288,133 262,152 270,182 250,162 230,182 238,152 212,133 242,125" fill="url(#heroStarGlow)"/>
+  </g>
+
+  <!-- Star Lantern -->
+  <g transform="translate(250, 345)">
+    <path d="M0 -55 C-20 -55 -20 -30 0 -30 C20 -30 20 -55 0 -55" stroke="#d4a042" stroke-width="5" fill="none"/>
+    <polygon points="0,-32 -42,-14 42,-14" fill="#b88128"/>
+    <rect x="-35" y="-14" width="70" height="70" rx="10" fill="#fff5d6" opacity="0.88"/>
+    <rect x="-35" y="-14" width="70" height="70" rx="10" fill="none" stroke="#b88128" stroke-width="4"/>
+    <polygon points="0,5 6,18 20,20 10,30 13,44 0,36 -13,44 -10,30 -20,20 -6,18" fill="url(#heroStarGlow)" filter="url(#heroSoftGlow)"/>
+    <rect x="-38" y="56" width="76" height="12" rx="4" fill="#b88128"/>
+  </g>
+</svg>

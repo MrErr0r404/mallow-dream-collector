@@ -1,0 +1,612 @@
+/* ==========================================================================
+   StoryTimeline Component Styles
+   Theme tokens:
+   - Warm cream: #fff8f1
+   - Rich berry: #a34063
+   - Warm brown: #5c4033
+   - Lavender: #c7b5f5
+   - Pale lilac: #eee7ff
+   - Blush pink: #f6dce8
+   - Warm gold: #f4cc77
+   - Deep night purple: #211d3a
+   ========================================================================== */
+
+.story-section {
+  position: relative;
+  padding: 6rem 1.5rem 8rem;
+  background: linear-gradient(180deg, #fff8f1 0%, #eee7ff 35%, #fff8f1 75%, #f6dce8 100%);
+  color: #5c4033;
+  overflow: hidden;
+}
+
+[data-theme='night'] .story-section {
+  background: linear-gradient(180deg, #211d3a 0%, #1a1630 35%, #251d38 75%, #18142b 100%);
+  color: #eee7ff;
+}
+
+.story-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Header */
+.story-header {
+  text-align: center;
+  margin-bottom: 4.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.story-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Fredoka', cursive, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #a34063;
+  background: rgba(246, 220, 232, 0.6);
+  padding: 0.4rem 1.1rem;
+  border-radius: 999px;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(163, 64, 99, 0.2);
+  box-shadow: 0 2px 8px rgba(163, 64, 99, 0.08);
+}
+
+[data-theme='night'] .story-eyebrow {
+  color: #f4cc77;
+  background: rgba(199, 181, 245, 0.15);
+  border-color: rgba(244, 204, 119, 0.3);
+  box-shadow: 0 2px 12px rgba(244, 204, 119, 0.15);
+}
+
+.story-title {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  color: #5c4033;
+  margin: 0 0 1rem;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+[data-theme='night'] .story-title {
+  color: #fff8f1;
+}
+
+.story-subtitle {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.125rem;
+  color: #7d5a49;
+  max-width: 580px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+[data-theme='night'] .story-subtitle {
+  color: #c7b5f5;
+}
+
+/* Timeline Track */
+.story-timeline-wrapper {
+  position: relative;
+}
+
+.story-timeline-line {
+  position: absolute;
+  top: 40px;
+  bottom: 80px;
+  left: 50%;
+  width: 4px;
+  transform: translateX(-50%);
+  background: rgba(199, 181, 245, 0.35);
+  border-radius: 4px;
+  z-index: 1;
+}
+
+[data-theme='night'] .story-timeline-line {
+  background: rgba(238, 231, 255, 0.15);
+}
+
+.story-timeline-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(180deg, #f4cc77 0%, #a34063 60%, #c7b5f5 100%);
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(244, 204, 119, 0.6);
+  transition: height 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Scene Rows */
+.story-scenes {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.story-scene-row {
+  display: grid;
+  grid-template-columns: 1fr 60px 1fr;
+  align-items: center;
+  position: relative;
+  min-height: 320px;
+}
+
+/* Marker Center Dot */
+.story-marker-col {
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 3;
+}
+
+.story-marker-dot {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff8f1;
+  border: 3px solid #c7b5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: #5c4033;
+  box-shadow: 0 4px 12px rgba(163, 64, 99, 0.15);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+  z-index: 3;
+}
+
+[data-theme='night'] .story-marker-dot {
+  background: #211d3a;
+  border-color: rgba(244, 204, 119, 0.4);
+  color: #f4cc77;
+}
+
+.story-scene-row.is-active .story-marker-dot {
+  background: #f4cc77;
+  border-color: #a34063;
+  color: #5c4033;
+  transform: scale(1.15);
+  box-shadow: 0 0 16px rgba(244, 204, 119, 0.8), 0 4px 12px rgba(163, 64, 99, 0.25);
+}
+
+[data-theme='night'] .story-scene-row.is-active .story-marker-dot {
+  background: #f4cc77;
+  border-color: #fff8f1;
+  color: #211d3a;
+}
+
+/* Content & Illustration Columns */
+.story-content-col,
+.story-illustration-col {
+  padding: 1rem 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Layout alternating - Odd (Chapter 1, 3): Text on Left (Col 1), Art on Right (Col 3) */
+.story-scene-row.row-odd .story-content-col {
+  grid-column: 1;
+  grid-row: 1;
+  text-align: left;
+}
+.story-scene-row.row-odd .story-illustration-col {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+/* Layout alternating - Even (Chapter 2, 4): Art on Left (Col 1), Text on Right (Col 3) */
+.story-scene-row.row-even .story-content-col {
+  grid-column: 3;
+  grid-row: 1;
+  text-align: left;
+}
+.story-scene-row.row-even .story-illustration-col {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+/* Story Card Content */
+.story-card {
+  background: rgba(255, 248, 241, 0.85);
+  backdrop-filter: blur(10px);
+  padding: 2.25rem 2rem;
+  border-radius: 24px;
+  border: 1px solid rgba(199, 181, 245, 0.4);
+  box-shadow: 0 10px 30px rgba(92, 64, 51, 0.06), 0 2px 8px rgba(163, 64, 99, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+[data-theme='night'] .story-card {
+  background: rgba(33, 29, 58, 0.75);
+  border-color: rgba(199, 181, 245, 0.2);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
+}
+
+.story-scene-row.is-active .story-card {
+  border-color: rgba(244, 204, 119, 0.6);
+  box-shadow: 0 12px 35px rgba(163, 64, 99, 0.12), 0 0 15px rgba(244, 204, 119, 0.2);
+}
+
+.story-chapter-tag {
+  display: inline-block;
+  font-family: 'Fredoka', cursive, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #a34063;
+  background: #eee7ff;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  margin-bottom: 0.75rem;
+}
+
+[data-theme='night'] .story-chapter-tag {
+  color: #f4cc77;
+  background: rgba(199, 181, 245, 0.18);
+}
+
+.story-scene-title {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 1.85rem;
+  color: #5c4033;
+  margin: 0 0 0.85rem;
+  line-height: 1.25;
+}
+
+[data-theme='night'] .story-scene-title {
+  color: #fff8f1;
+}
+
+.story-scene-text {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #5c4033;
+  margin: 0 0 1rem;
+  opacity: 0.9;
+}
+
+[data-theme='night'] .story-scene-text {
+  color: #eee7ff;
+  opacity: 0.85;
+}
+
+.story-scene-quote {
+  font-family: 'Fredoka', cursive, sans-serif;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #a34063;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  justify-content: flex-start;
+}
+
+[data-theme='night'] .story-scene-quote {
+  color: #f4cc77;
+}
+
+/* Illustration Styles */
+.story-illustration-box {
+  width: 100%;
+  max-width: 380px;
+  aspect-ratio: 4 / 3;
+  margin: 0 auto;
+  border-radius: 28px;
+  background: radial-gradient(circle at center, #eee7ff 0%, #fff8f1 100%);
+  border: 2px dashed rgba(199, 181, 245, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(163, 64, 99, 0.08);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+[data-theme='night'] .story-illustration-box {
+  background: radial-gradient(circle at center, rgba(199, 181, 245, 0.15) 0%, #1a1630 100%);
+  border-color: rgba(244, 204, 119, 0.3);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+}
+
+.story-illustration-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 36px rgba(163, 64, 99, 0.14);
+}
+
+.story-illustration-art {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Scene 1: Books and shelves */
+.art-books {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.bookshelf-decor {
+  width: 75%;
+  height: 12px;
+  background: #5c4033;
+  border-radius: 6px;
+  position: relative;
+  margin-top: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.bookshelf-decor::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 10%;
+  right: 10%;
+  height: 6px;
+  background: rgba(92, 64, 51, 0.4);
+  border-radius: 0 0 4px 4px;
+}
+
+.books-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  margin-bottom: 2px;
+}
+
+.book {
+  border-radius: 4px 4px 0 0;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.15);
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.book:hover {
+  transform: translateY(-6px);
+}
+
+.book-1 { width: 22px; height: 75px; background: #a34063; }
+.book-2 { width: 28px; height: 95px; background: #c7b5f5; }
+.book-3 { width: 34px; height: 85px; background: #f4cc77; }
+.book-4 { width: 24px; height: 68px; background: #5c4033; }
+.book-5 { width: 30px; height: 90px; background: #f6dce8; }
+
+.floating-pages {
+  position: absolute;
+  top: 18%;
+  font-size: 2.2rem;
+  animation: floatBook 3.5s ease-in-out infinite;
+  filter: drop-shadow(0 4px 10px rgba(244, 204, 119, 0.4));
+}
+
+/* Scene 2: Star glow */
+.art-starglow {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.star-aura {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(244, 204, 119, 0.45) 0%, rgba(199, 181, 245, 0.2) 60%, transparent 100%);
+  animation: pulseAura 4s ease-in-out infinite;
+}
+
+.star-center {
+  font-size: 3.5rem;
+  color: #f4cc77;
+  filter: drop-shadow(0 0 20px #f4cc77);
+  animation: rotateStar 16s linear infinite;
+  position: relative;
+  z-index: 2;
+}
+
+.star-mini {
+  position: absolute;
+  color: #c7b5f5;
+  font-size: 1.25rem;
+  animation: floatMiniStar 3s ease-in-out infinite;
+}
+
+.star-mini:nth-child(2) { top: 22%; left: 24%; animation-delay: 0.3s; }
+.star-mini:nth-child(3) { bottom: 25%; right: 22%; animation-delay: 0.7s; color: #f4cc77; }
+.star-mini:nth-child(4) { top: 28%; right: 26%; animation-delay: 1.2s; }
+.star-mini:nth-child(5) { bottom: 22%; left: 26%; animation-delay: 1.8s; color: #f6dce8; }
+
+/* Scene 3: Golden light lantern */
+.art-goldenlight {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.lantern-glow-rays {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(244, 204, 119, 0.5) 0%, rgba(246, 220, 232, 0.25) 50%, transparent 80%);
+  animation: lanternBreathe 3s ease-in-out infinite alternate;
+}
+
+.lantern-icon {
+  font-size: 3.8rem;
+  filter: drop-shadow(0 0 24px rgba(244, 204, 119, 0.85));
+  position: relative;
+  z-index: 2;
+  animation: lanternSway 4s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+.lantern-sparkle {
+  position: absolute;
+  color: #f4cc77;
+  font-size: 1.1rem;
+  animation: twinkleEmbers 2.5s ease-in-out infinite;
+}
+
+.lantern-sparkle:nth-child(3) { top: 18%; left: 32%; animation-delay: 0.4s; }
+.lantern-sparkle:nth-child(4) { bottom: 20%; right: 30%; animation-delay: 0.9s; }
+.lantern-sparkle:nth-child(5) { top: 35%; right: 20%; animation-delay: 1.4s; }
+
+/* Scene 4: Moon and dreams */
+.art-moon {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.moon-orb {
+  font-size: 3.8rem;
+  filter: drop-shadow(0 0 22px rgba(238, 231, 255, 0.9));
+  animation: moonFloat 4.5s ease-in-out infinite;
+  position: relative;
+  z-index: 2;
+}
+
+.dream-bubbles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.dream-bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(199, 181, 245, 0.4) 60%, rgba(246, 220, 232, 0.6) 100%);
+  border: 1px solid rgba(255,255,255,0.6);
+  box-shadow: 0 4px 10px rgba(199, 181, 245, 0.3);
+  animation: floatBubble 5s ease-in-out infinite;
+}
+
+.dream-bubble:nth-child(1) { width: 34px; height: 34px; bottom: 20%; left: 22%; animation-delay: 0s; }
+.dream-bubble:nth-child(2) { width: 22px; height: 22px; top: 22%; right: 25%; animation-delay: 1.2s; }
+.dream-bubble:nth-child(3) { width: 18px; height: 18px; bottom: 32%; right: 22%; animation-delay: 2.1s; }
+
+/* Keyframe Animations */
+@keyframes floatBook {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-10px) rotate(3deg); }
+}
+
+@keyframes pulseAura {
+  0%, 100% { transform: scale(0.9); opacity: 0.6; }
+  50% { transform: scale(1.15); opacity: 0.95; }
+}
+
+@keyframes rotateStar {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes floatMiniStar {
+  0%, 100% { transform: translateY(0) scale(0.85); opacity: 0.5; }
+  50% { transform: translateY(-8px) scale(1.15); opacity: 1; }
+}
+
+@keyframes lanternBreathe {
+  0% { transform: scale(0.85); opacity: 0.5; }
+  100% { transform: scale(1.2); opacity: 0.9; }
+}
+
+@keyframes lanternSway {
+  0%, 100% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+}
+
+@keyframes twinkleEmbers {
+  0%, 100% { opacity: 0.2; transform: scale(0.7); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes moonFloat {
+  0%, 100% { transform: translateY(0) rotate(-4deg); }
+  50% { transform: translateY(-12px) rotate(4deg); }
+}
+
+@keyframes floatBubble {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-14px) scale(1.08); }
+}
+
+/* Responsive */
+@media (max-width: 860px) {
+  .story-timeline-line {
+    display: none;
+  }
+
+  .story-scene-row {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    min-height: auto;
+  }
+
+  .story-marker-col {
+    display: none;
+  }
+
+  .story-scene-row.row-even .story-content-col,
+  .story-scene-row.row-odd .story-content-col {
+    grid-column: auto;
+    grid-row: auto;
+    order: 2;
+    text-align: left;
+    padding: 0;
+    width: 100%;
+  }
+
+  .story-scene-row.row-even .story-illustration-col,
+  .story-scene-row.row-odd .story-illustration-col {
+    grid-column: auto;
+    grid-row: auto;
+    order: 1;
+    padding: 0;
+    width: 100%;
+  }
+
+  .story-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .story-illustration-box {
+    max-width: 100%;
+    aspect-ratio: 16 / 10;
+  }
+}
