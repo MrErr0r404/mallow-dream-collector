@@ -1,6 +1,4 @@
-/* ==========================================================================
-   StoryRepairShop.css — Creation No. 001
-   ========================================================================== */
+
 
 :root {
   --color-warm-cream: #fff8f1;
@@ -45,7 +43,7 @@
   gap: 2.5rem;
 }
 
-/* ✦ Header */
+
 .story-shop-header {
   text-align: center;
   max-width: 680px;
@@ -99,7 +97,7 @@
   opacity: 0.9;
 }
 
-/* ✦ The Story Book Page Wrapper */
+
 .story-book-wrapper {
   position: relative;
   max-width: 760px;
@@ -144,7 +142,7 @@
               0 2px 12px rgba(0, 0, 0, 0.4);
 }
 
-/* Ribbon Bookmark */
+
 .book-ribbon {
   position: absolute;
   top: -12px;
@@ -168,7 +166,7 @@
   line-height: 1;
 }
 
-/* Corner Filigrees */
+
 .corner-filigree {
   position: absolute;
   color: var(--color-warm-gold);
@@ -183,7 +181,7 @@
 .corner-filigree.bottom-left { bottom: 12px; left: 20px; }
 .corner-filigree.bottom-right { bottom: 12px; right: 20px; }
 
-/* Book Header Meta */
+
 .book-page-header {
   display: flex;
   justify-content: space-between;
@@ -226,7 +224,7 @@
   font-style: italic;
 }
 
-/* Crane Illustration Container */
+
 .crane-illustration-container {
   display: flex;
   justify-content: center;
@@ -256,7 +254,7 @@
   transform: translateY(-5px) scale(1.05);
 }
 
-/* Story Text */
+
 .story-content {
   display: flex;
   flex-direction: column;
@@ -298,7 +296,7 @@
   text-shadow: 0 0 12px rgba(244, 204, 119, 0.5);
 }
 
-/* Repaired Ending Reveal Block */
+
 .story-repaired-block {
   background: linear-gradient(180deg, rgba(244, 204, 119, 0.12) 0%, rgba(199, 181, 245, 0.12) 100%);
   border: 1px dashed rgba(163, 64, 99, 0.3);
@@ -350,7 +348,7 @@
   line-height: 1.7;
 }
 
-/* Story Completion Banner */
+
 .story-completion-banner {
   margin-top: 1.25rem;
   display: flex;
@@ -424,7 +422,7 @@
   color: var(--color-night-purple);
 }
 
-/* Book Footer Flourish */
+
 .book-page-footer {
   text-align: center;
   margin-top: 1.5rem;
@@ -438,7 +436,7 @@
   opacity: 0.7;
 }
 
-/* ✦ Ending Selection Area */
+
 .endings-selection-area {
   margin-top: 0.5rem;
 }
@@ -497,7 +495,7 @@
   gap: 1.25rem;
 }
 
-/* Ending Cards */
+
 .ending-card {
   background: #ffffff;
   border: 2px solid rgba(163, 64, 99, 0.14);
@@ -650,7 +648,7 @@
   color: var(--color-warm-gold);
 }
 
-/* ✦ Responsive Breakpoints */
+
 @media (max-width: 860px) {
   .endings-grid {
     grid-template-columns: 1fr;

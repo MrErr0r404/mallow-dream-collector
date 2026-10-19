@@ -1,6 +1,4 @@
-/* ============================================
-   MALLOW — Global Styles
-   ============================================ */
+
 
 @import './tokens.css';
 @import './animations.css';
@@ -92,7 +90,7 @@ img {
   display: block;
 }
 
-/* === Utility Classes === */
+
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
@@ -141,7 +139,7 @@ img {
   margin-bottom: var(--space-2xl);
 }
 
-/* === Buttons === */
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -198,7 +196,7 @@ img {
   justify-content: center;
 }
 
-/* === Cards === */
+
 .card {
   background: var(--bg-card);
   border-radius: var(--border-radius-lg);
@@ -213,7 +211,7 @@ img {
   transform: translateY(-4px);
 }
 
-/* === Decorative Elements === */
+
 .star-stamp {
   display: inline-block;
   color: var(--star-color);
@@ -236,7 +234,7 @@ img {
   opacity: 0.8;
 }
 
-/* === Scrollbar === */
+
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -254,7 +252,7 @@ img {
   background: var(--color-berry);
 }
 
-/* === Selection === */
+
 ::selection {
   background: var(--color-blush);
   color: var(--color-berry);
@@ -265,7 +263,7 @@ img {
   color: var(--color-gold);
 }
 
-/* === Responsive Base === */
+
 @media (max-width: 768px) {
   .container {
     padding: 0 var(--space-md);

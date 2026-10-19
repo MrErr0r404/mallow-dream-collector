@@ -1,6 +1,4 @@
-/* ==========================================================================
-   CharacterSheet.css — Mallow Scrapbook Character Profile
-   ========================================================================== */
+
 
 :root {
   --cs-cream: #fff8f1;
@@ -41,7 +39,7 @@
   --cs-blush-soft: #2e2038;
 }
 
-/* Base Section */
+
 .character-sheet-section {
   position: relative;
   padding: 5rem 1.5rem;
@@ -52,7 +50,7 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Subtle background scrapbook grid / dot pattern */
+
 .character-sheet-section::before {
   content: '';
   position: absolute;
@@ -73,7 +71,7 @@
   z-index: 1;
 }
 
-/* Section Header */
+
 .character-sheet-header {
   text-align: center;
   margin-bottom: 3.5rem;
@@ -119,7 +117,7 @@
   font-weight: 400;
 }
 
-/* Two-Column Scrapbook Grid */
+
 .scrapbook-layout {
   display: grid;
   grid-template-columns: 400px 1fr;
@@ -142,9 +140,7 @@
   }
 }
 
-/* ==========================================================================
-   Left Column: Character Card
-   ========================================================================== */
+
 
 .character-card {
   position: relative;
@@ -164,7 +160,7 @@
   box-shadow: var(--cs-shadow-hover);
 }
 
-/* Scrapbook Washi Tape */
+
 .washi-tape {
   position: absolute;
   top: -12px;
@@ -186,7 +182,7 @@
   transform: translateX(-50%) rotate(1.2deg);
 }
 
-/* Specimen Stamp Badge */
+
 .stamp-badge {
   display: inline-flex;
   align-items: center;
@@ -203,7 +199,7 @@
   background-color: var(--cs-blush-soft);
 }
 
-/* Expression Frame & Sparkles Container */
+
 .expression-viewport-container {
   position: relative;
   display: flex;
@@ -212,7 +208,7 @@
   margin-bottom: 1.25rem;
 }
 
-/* Floating Sparkle Particles */
+
 .card-sparkles-wrap {
   position: absolute;
   inset: -16px;
@@ -236,7 +232,7 @@
   100% { transform: translateY(-8px) scale(1.15); opacity: 1; }
 }
 
-/* Expression Image Box (2x2 Quadrant Crop) */
+
 .expression-image {
   width: 200px;
   height: 200px;
@@ -259,7 +255,7 @@
   will-change: transform;
 }
 
-/* SVG Fallback if image isn't loaded */
+
 .expression-fallback {
   width: 100%;
   height: 100%;
@@ -285,7 +281,7 @@
   margin-top: 0.4rem;
 }
 
-/* Expression Thought/Speech Message */
+
 .expression-message-card {
   width: 100%;
   position: relative;
@@ -336,7 +332,7 @@
   margin: 0;
 }
 
-/* Expression Selector Buttons (4 in a row) */
+
 .expression-selector {
   width: 100%;
   display: grid;
@@ -395,9 +391,7 @@
   letter-spacing: 0.02em;
 }
 
-/* ==========================================================================
-   Right Column: Character Info
-   ========================================================================== */
+
 
 .character-info-wrap {
   display: flex;
@@ -405,7 +399,7 @@
   gap: 1.6rem;
 }
 
-/* Name & Title Block */
+
 .profile-title-card {
   position: relative;
   background-color: var(--cs-paper-bg);
@@ -460,7 +454,7 @@
   margin: 0;
 }
 
-/* Info Grid (Species, Home, Job) */
+
 .info-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -540,7 +534,7 @@
   line-height: 1.3;
 }
 
-/* Scrapbook Info Section Cards */
+
 .scrapbook-card {
   background-color: var(--cs-paper-bg);
   border: 2px dashed var(--cs-border-color);
@@ -578,7 +572,7 @@
   letter-spacing: 0.01em;
 }
 
-/* Personality Tags */
+
 .personality-pill-wrap {
   display: flex;
   flex-wrap: wrap;
@@ -609,7 +603,7 @@
   box-shadow: 0 4px 10px rgba(163, 64, 99, 0.12);
 }
 
-/* Quirks Section (Italic Handwritten / Journal Style) */
+
 .quirks-container {
   background-color: var(--cs-card-bg);
   border-radius: 12px;
@@ -645,7 +639,7 @@
   font-weight: bold;
 }
 
-/* Favorites Section (Cards / Tags) */
+
 .favorites-tag-cloud {
   display: flex;
   flex-wrap: wrap;
@@ -680,7 +674,7 @@
   color: var(--cs-gold-dark);
 }
 
-/* Abilities Section (Star-Bullet List) */
+
 .abilities-list {
   list-style: none;
   padding: 0;
@@ -716,7 +710,7 @@
   filter: drop-shadow(0 1px 3px rgba(244, 204, 119, 0.4));
 }
 
-/* Decorative Footer Tape / Stamp */
+
 .scrapbook-footer-decor {
   display: flex;
   justify-content: center;
@@ -741,7 +735,7 @@
   );
 }
 
-/* Reduced Motion for Accessibility */
+
 @media (prefers-reduced-motion: reduce) {
   .character-card,
   .profile-title-card,

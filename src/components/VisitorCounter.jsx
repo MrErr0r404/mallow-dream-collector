@@ -9,7 +9,6 @@ export default function VisitorCounter() {
   const hasIncrementedRef = useRef(false);
 
   useEffect(() => {
-    // Prevent double-increment in React StrictMode
     if (hasIncrementedRef.current) return;
     hasIncrementedRef.current = true;
 
@@ -34,10 +33,8 @@ export default function VisitorCounter() {
       console.warn('Could not write visitor count:', e);
     }
 
-    // Format as 6 digits with leading zeros
     const formattedDigits = nextCount.toString().padStart(6, '0').split('');
 
-    // Small delay before rolling for delightful staggered entry
     const timer = setTimeout(() => {
       setDisplayedDigits(formattedDigits);
     }, 150);

@@ -5,13 +5,7 @@ import { motion } from 'motion/react';
 import { Heart, Sparkles, Star, BookOpen, Home } from 'lucide-react';
 import './CharacterSheet.css';
 
-/**
- * Quadrant translation mapping for 2x2 expression sprite sheet.
- * Happy:     top-left     -> translate(0, 0)
- * Sleepy:    top-right    -> translate(-100%, 0) (container frame) / translate(-50%, 0) (element scale)
- * Curious:   bottom-left  -> translate(0, -100%) (container frame) / translate(0, -50%) (element scale)
- * Surprised: bottom-right -> translate(-100%, -100%) (container frame) / translate(-50%, -50%) (element scale)
- */
+
 const QUADRANT_POSITIONS = {
   happy: {
     transform: 'translate(0, 0)',
@@ -45,7 +39,6 @@ export default function CharacterSheet() {
   const [sparkleKey, setSparkleKey] = useState(0);
   const [imageError, setImageError] = useState(false);
 
-  // Safe expression list extractor supporting either object or array shapes
   const expressionsList = character?.expressions
     ? Object.entries(character.expressions).map(([key, data]) => ({
         id: key,
@@ -68,7 +61,6 @@ export default function CharacterSheet() {
     setActiveExpression(id);
     setSparkleKey(prev => prev + 1);
 
-    // Audio cue on expression change
     if (soundContext?.playClick) {
       soundContext.playClick();
     } else if (soundContext?.playStarPop) {
@@ -82,7 +74,7 @@ export default function CharacterSheet() {
     <section id="about" className="character-sheet-section" aria-label="Character Profile">
       <div className="character-sheet-container">
         
-        {/* Section Header */}
+        {}
         <motion.div 
           className="character-sheet-header"
           initial={{ opacity: 0, y: 20 }}
@@ -100,12 +92,10 @@ export default function CharacterSheet() {
           </p>
         </motion.div>
 
-        {/* Two-Column Scrapbook Layout */}
+        {}
         <div className="scrapbook-layout">
           
-          {/* =========================================================
-              LEFT COLUMN: Character Card (Expression Display & Controls)
-              ========================================================= */}
+          {}
           <motion.div 
             className="character-card"
             initial={{ opacity: 0, y: 20 }}
@@ -113,18 +103,18 @@ export default function CharacterSheet() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            {/* Scrapbook washi tape element */}
+            {}
             <div className="washi-tape" aria-hidden="true" />
 
-            {/* Specimen Profile Stamp */}
+            {}
             <div className="stamp-badge">
               <Sparkles size={12} aria-hidden="true" />
               <span>CHARACTER PROFILE</span>
             </div>
 
-            {/* Expression Frame with Sparkle Animations */}
+            {}
             <div className="expression-viewport-container">
-              {/* Animated Floating Sparkles upon Expression Change */}
+              {}
               <motion.div 
                 key={`sparkles-${sparkleKey}`}
                 className="card-sparkles-wrap"
@@ -139,7 +129,7 @@ export default function CharacterSheet() {
                 <span className="sparkle-particle sparkle-p4">✨</span>
               </motion.div>
 
-              {/* Expression Image Container (2x2 Quadrant Crop) */}
+              {}
               <motion.div 
                 key={`img-${activeExpression}`}
                 className="expression-image"
@@ -167,7 +157,7 @@ export default function CharacterSheet() {
                     }}
                   />
                 ) : (
-                  /* High quality SVG character representation fallback */
+                  
                   <div className="expression-fallback" role="img" aria-label={`Mallow looking ${currentExpr.label}`}>
                     <svg className="fallback-ghost-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <defs>
@@ -176,18 +166,18 @@ export default function CharacterSheet() {
                           <stop offset="100%" stopColor="#c7b5f5" />
                         </radialGradient>
                       </defs>
-                      {/* Ghost Body */}
+                      {}
                       <path 
                         d="M20 52 C20 30 34 16 50 16 C66 16 80 30 80 52 C80 72 78 82 72 82 C68 82 66 76 60 76 C54 76 52 82 46 82 C40 82 38 76 32 76 C26 76 24 82 20 82 C16 82 20 72 20 52 Z" 
                         fill="url(#ghostGrad)" 
                       />
-                      {/* Rosy Cheeks */}
+                      {}
                       <ellipse cx="32" cy="54" rx="5" ry="3" fill="#f6dce8" />
                       <ellipse cx="68" cy="54" rx="5" ry="3" fill="#f6dce8" />
-                      {/* Forehead Star */}
+                      {}
                       <polygon points="50,20 52,25 57,25 53,28 55,33 50,30 45,33 47,28 43,25 48,25" fill="#f4cc77" />
                       
-                      {/* Dynamic Eyes & Mouth according to expression */}
+                      {}
                       {activeExpression === 'happy' && (
                         <g>
                           <path d="M33 46 Q38 41 43 46" stroke="#3d2145" strokeWidth="3" strokeLinecap="round" fill="none" />
@@ -229,7 +219,7 @@ export default function CharacterSheet() {
               </motion.div>
             </div>
 
-            {/* Expression Message Card */}
+            {}
             <motion.div 
               key={`msg-${activeExpression}`}
               className="expression-message-card"
@@ -242,7 +232,7 @@ export default function CharacterSheet() {
               </p>
             </motion.div>
 
-            {/* Expression Selector Buttons (4 in a row) */}
+            {}
             <div className="expression-selector" role="group" aria-label="Select Mallow's expression">
               {expressionsList.map((expr) => {
                 const isActive = expr.id === activeExpression;
@@ -263,12 +253,10 @@ export default function CharacterSheet() {
             </div>
           </motion.div>
 
-          {/* =========================================================
-              RIGHT COLUMN: Character Info (Profile, Quirks, Favorites)
-              ========================================================= */}
+          {}
           <div className="character-info-wrap">
             
-            {/* Name & Title Block */}
+            {}
             <motion.div 
               className="profile-title-card"
               initial={{ opacity: 0, y: 20 }}
@@ -287,7 +275,7 @@ export default function CharacterSheet() {
               <p className="character-subtitle-text">{character?.title || 'The Little Dream Collector'}</p>
             </motion.div>
 
-            {/* Info Grid: Species, Home, Job */}
+            {}
             <motion.div 
               className="info-grid"
               initial={{ opacity: 0, y: 20 }}
@@ -295,7 +283,7 @@ export default function CharacterSheet() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              {/* Species */}
+              {}
               <div className="info-card">
                 <div className="info-icon-bubble bubble-gold" aria-hidden="true">
                   <Star size={18} fill="currentColor" />
@@ -306,7 +294,7 @@ export default function CharacterSheet() {
                 </div>
               </div>
 
-              {/* Home */}
+              {}
               <div className="info-card">
                 <div className="info-icon-bubble bubble-lavender" aria-hidden="true">
                   <Home size={18} />
@@ -317,7 +305,7 @@ export default function CharacterSheet() {
                 </div>
               </div>
 
-              {/* Job */}
+              {}
               <div className="info-card">
                 <div className="info-icon-bubble bubble-berry" aria-hidden="true">
                   <BookOpen size={18} />
@@ -331,7 +319,7 @@ export default function CharacterSheet() {
               </div>
             </motion.div>
 
-            {/* Personality Tags */}
+            {}
             <motion.div 
               className="scrapbook-card"
               initial={{ opacity: 0, y: 20 }}
@@ -352,7 +340,7 @@ export default function CharacterSheet() {
               </div>
             </motion.div>
 
-            {/* Quirks Section */}
+            {}
             <motion.div 
               className="scrapbook-card"
               initial={{ opacity: 0, y: 20 }}
@@ -377,7 +365,7 @@ export default function CharacterSheet() {
               </div>
             </motion.div>
 
-            {/* Favorites Section */}
+            {}
             <motion.div 
               className="scrapbook-card"
               initial={{ opacity: 0, y: 20 }}
@@ -405,7 +393,7 @@ export default function CharacterSheet() {
               </div>
             </motion.div>
 
-            {/* Abilities Section */}
+            {}
             <motion.div 
               className="scrapbook-card"
               initial={{ opacity: 0, y: 20 }}
@@ -435,7 +423,7 @@ export default function CharacterSheet() {
           </div>
         </div>
 
-        {/* Decorative Scrapbook Footer Divider */}
+        {}
         <div className="scrapbook-footer-decor" aria-hidden="true">
           <div className="footer-decor-line" />
           <span>✦ END OF SPECIMEN MEMORY ✦</span>

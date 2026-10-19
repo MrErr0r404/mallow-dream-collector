@@ -13,7 +13,6 @@ export default function SecretDreamRoom({ isOpen, onClose }) {
   const closeButtonRef = useRef(null);
   const hasFiredConfettiRef = useRef(false);
 
-  // Handle escape and tab focus trap
   const handleKeyDown = useCallback(
     (e) => {
       if (e.key === 'Escape') {
@@ -48,12 +47,10 @@ export default function SecretDreamRoom({ isOpen, onClose }) {
     if (isOpen) {
       window.addEventListener('keydown', handleKeyDown);
 
-      // Play music box sound if available
       if (soundContext?.playMusicBox) {
         soundContext.playMusicBox();
       }
 
-      // Fire confetti once per open, unless reduced motion is preferred
       if (!hasFiredConfettiRef.current && !prefersReducedMotion) {
         hasFiredConfettiRef.current = true;
         try {
@@ -70,12 +67,10 @@ export default function SecretDreamRoom({ isOpen, onClose }) {
         }
       }
 
-      // Focus close/return button
       const timer = setTimeout(() => {
         returnButtonRef.current?.focus();
       }, 50);
 
-      // Lock body scroll
       document.body.style.overflow = 'hidden';
 
       return () => {
@@ -98,7 +93,7 @@ export default function SecretDreamRoom({ isOpen, onClose }) {
           aria-labelledby="secret-room-title"
           onClick={onClose}
         >
-          {/* Animated background stars */}
+          {}
           <div className="secret-stars-layer" aria-hidden="true">
             <span className="secret-bg-star">✦</span>
             <span className="secret-bg-star">✧</span>
@@ -116,7 +111,7 @@ export default function SecretDreamRoom({ isOpen, onClose }) {
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ type: 'spring', damping: 24, stiffness: 280 }}
           >
-            {/* Top Close Icon */}
+            {}
             <button
               ref={closeButtonRef}
               type="button"
@@ -127,18 +122,18 @@ export default function SecretDreamRoom({ isOpen, onClose }) {
               <X size={18} />
             </button>
 
-            {/* Mallow Expression */}
+            {}
             <div className="secret-mallow-face" aria-label="Mallow smiling joyfully">
               (⁀ᗢ⁀)
             </div>
 
-            {/* Star with glow */}
+            {}
             <div className="secret-star-art" aria-hidden="true">
               <div className="secret-star-glow"></div>
               <span className="secret-star-icon">⭐</span>
             </div>
 
-            {/* Title & Message */}
+            {}
             <h2 id="secret-room-title" className="secret-title">
               ✦ You found the Secret Dream Room! ✦
             </h2>
@@ -147,7 +142,7 @@ export default function SecretDreamRoom({ isOpen, onClose }) {
               Only the most curious dreamers find this place. Mallow has a gift for you...
             </p>
 
-            {/* Collectible Badge */}
+            {}
             <div className="secret-collectible-badge">
               <Star size={20} color="#f4cc77" fill="#f4cc77" />
               <span className="secret-badge-text">
@@ -155,7 +150,7 @@ export default function SecretDreamRoom({ isOpen, onClose }) {
               </span>
             </div>
 
-            {/* Close Button */}
+            {}
             <button
               ref={returnButtonRef}
               type="button"

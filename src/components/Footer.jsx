@@ -47,11 +47,11 @@ export default function Footer({ onEasterEgg, onOpenSecret }) {
 
   return (
     <footer className="footer-section">
-      {/* Decorative dotted border on top */}
+      {}
       <div className="footer-dotted-divider" aria-hidden="true" />
 
       <div className="footer-container">
-        {/* Warm closing message from Mallow */}
+        {}
         <div className="footer-mallow-message-box">
           <div className="footer-avatar" aria-hidden="true">
             🎐
@@ -64,7 +64,7 @@ export default function Footer({ onEasterEgg, onOpenSecret }) {
           </div>
         </div>
 
-        {/* Navigation links */}
+        {}
         <nav className="footer-nav" aria-label="Footer navigation">
           <button
             type="button"
@@ -96,12 +96,12 @@ export default function Footer({ onEasterEgg, onOpenSecret }) {
           </button>
         </nav>
 
-        {/* Visitor Counter */}
+        {}
         <div className="footer-counter-block">
           <VisitorCounter />
         </div>
 
-        {/* Easter Egg Trigger Star */}
+        {}
         <div className="footer-easter-egg-wrapper">
           <button
             type="button"
@@ -124,7 +124,7 @@ export default function Footer({ onEasterEgg, onOpenSecret }) {
           )}
         </div>
 
-        {/* Back to top */}
+        {}
         <button
           type="button"
           className="back-to-top-btn"
@@ -135,7 +135,7 @@ export default function Footer({ onEasterEgg, onOpenSecret }) {
           <span>Back to top</span>
         </button>
 
-        {/* Credits section */}
+        {}
         <div className="footer-credits">
           <div className="credits-highlight">
             <span>Made with</span>

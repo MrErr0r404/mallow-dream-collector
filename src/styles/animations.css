@@ -1,8 +1,6 @@
-/* ============================================
-   MALLOW — Animations
-   ============================================ */
 
-/* === Floating === */
+
+
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-12px); }
@@ -18,7 +16,7 @@
   50% { transform: translateY(-6px); }
 }
 
-/* === Glow === */
+
 @keyframes glow-pulse {
   0%, 100% { 
     filter: drop-shadow(0 0 8px var(--glow-lantern));
@@ -39,7 +37,7 @@
   }
 }
 
-/* === Stars === */
+
 @keyframes twinkle {
   0%, 100% { opacity: 1; transform: scale(1); }
   50% { opacity: 0.4; transform: scale(0.8); }
@@ -64,7 +62,7 @@
   100% { transform: scale(0) rotate(360deg); opacity: 0; }
 }
 
-/* === Fade In Variants === */
+
 @keyframes fade-in {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -103,7 +101,7 @@
   }
 }
 
-/* === Wiggle === */
+
 @keyframes wiggle {
   0%, 100% { transform: rotate(0deg); }
   25% { transform: rotate(-3deg); }
@@ -116,7 +114,7 @@
   75% { transform: rotate(5deg); }
 }
 
-/* === Bounce === */
+
 @keyframes bounce-gentle {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-4px); }
@@ -129,13 +127,13 @@
   100% { transform: scale(1); opacity: 1; }
 }
 
-/* === Scroll Cue === */
+
 @keyframes scroll-bounce {
   0%, 100% { transform: translateY(0); opacity: 0.6; }
   50% { transform: translateY(8px); opacity: 1; }
 }
 
-/* === Route Animation === */
+
 @keyframes draw-path {
   from { stroke-dashoffset: var(--path-length, 1000); }
   to { stroke-dashoffset: 0; }
@@ -146,7 +144,7 @@
   50% { r: 7; opacity: 0.7; }
 }
 
-/* === Chaos Mode === */
+
 @keyframes chaos-wiggle {
   0%, 100% { transform: rotate(0deg) scale(1); }
   25% { transform: rotate(-6deg) scale(1.02); }
@@ -161,7 +159,7 @@
   75% { transform: translateY(-10px) translateX(2px); }
 }
 
-/* === Reduced Motion === */
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -170,7 +168,7 @@
   }
 }
 
-/* === Odometer === */
+
 @keyframes odometer-spin {
   from { transform: translateY(0); }
   to { transform: translateY(-100%); }

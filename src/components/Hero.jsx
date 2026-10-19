@@ -5,7 +5,6 @@ import { SoundContext } from '../App';
 import usePointerReaction from '../hooks/usePointerReaction';
 import './Hero.css';
 
-// Rich SVG fallback data URL in case /images/mallow-hero.jpg is not yet populated
 const MALLOW_FALLBACK_SVG = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
   <defs>
     <radialGradient id="skyGrad" cx="50%" cy="50%" r="60%">
@@ -59,10 +58,7 @@ const MALLOW_FALLBACK_SVG = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.o
   </g>
 </svg>`;
 
-/**
- * FloatingStars Component (inline)
- * 6 star elements positioned absolutely around the hero image with unique sizes, delays, and opacities
- */
+
 function FloatingStars() {
   const stars = [
     { top: '8%', left: '8%', size: '22px', delay: '0s', opacity: 0.95, duration: '3.4s' },
@@ -98,10 +94,7 @@ function FloatingStars() {
   );
 }
 
-/**
- * ScrollCue Component (inline)
- * Centered bouncing cue below the hero leading to the next section
- */
+
 function ScrollCue() {
   const handleScrollCue = () => {
     const target =
@@ -130,10 +123,7 @@ function ScrollCue() {
   );
 }
 
-/**
- * Hero Component
- * The visually impressive hero banner introducing Mallow, The Little Dream Collector
- */
+
 export default function Hero({ onOpenSecret, chaosMode = false, onToggleChaos }) {
   const soundContext = useContext(SoundContext) || {};
   const imageContainerRef = useRef(null);
@@ -188,9 +178,9 @@ export default function Hero({ onOpenSecret, chaosMode = false, onToggleChaos })
   return (
     <section className="hero-section" id="hero" aria-label="Welcome to Mallow's world">
       <div className="hero-content-wrapper">
-        {/* Left Column: Text Content with Staggered Entrance Animations */}
+        {}
         <div className="hero-text-col">
-          {/* Label Badge — Delay: 0s */}
+          {}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -202,7 +192,7 @@ export default function Hero({ onOpenSecret, chaosMode = false, onToggleChaos })
             </div>
           </motion.div>
 
-          {/* Large Heading — Delay: 0.15s */}
+          {}
           <motion.h1
             className="hero-heading"
             initial={{ opacity: 0, y: 22 }}
@@ -213,7 +203,7 @@ export default function Hero({ onOpenSecret, chaosMode = false, onToggleChaos })
             <span className="hero-heading-highlight">little dreamer.</span>
           </motion.h1>
 
-          {/* Subheading — Delay: 0.3s */}
+          {}
           <motion.p
             className="hero-subheading"
             initial={{ opacity: 0, y: 20 }}
@@ -224,7 +214,7 @@ export default function Hero({ onOpenSecret, chaosMode = false, onToggleChaos })
             stories their happy endings.
           </motion.p>
 
-          {/* Action Buttons — Delay: 0.45s */}
+          {}
           <motion.div
             className="hero-button-group"
             initial={{ opacity: 0, y: 18 }}
@@ -250,7 +240,7 @@ export default function Hero({ onOpenSecret, chaosMode = false, onToggleChaos })
             </button>
           </motion.div>
 
-          {/* Small Handwritten Note — Delay: 0.6s */}
+          {}
           <motion.div
             className="hero-handwritten-note"
             initial={{ opacity: 0, y: 14 }}
@@ -262,7 +252,7 @@ export default function Hero({ onOpenSecret, chaosMode = false, onToggleChaos })
           </motion.div>
         </div>
 
-        {/* Right Column: Mallow Character Illustration with Pointer Reaction & Floating Stars */}
+        {}
         <div className="hero-image-col">
           <div
             ref={imageContainerRef}
@@ -272,13 +262,13 @@ export default function Hero({ onOpenSecret, chaosMode = false, onToggleChaos })
             }}
           >
             <div className="mallow-float-wrapper">
-              {/* Lantern Glow Pulse Effect */}
+              {}
               <div className="mallow-lantern-glow" aria-hidden="true" />
 
-              {/* 6 Independent Floating Stars */}
+              {}
               <FloatingStars />
 
-              {/* Interactive Character Image Container */}
+              {}
               <div
                 className={`mallow-image-frame ${isBouncing ? 'bounce-active' : ''}`}
                 onClick={handleMallowClick}
@@ -311,7 +301,7 @@ export default function Hero({ onOpenSecret, chaosMode = false, onToggleChaos })
         </div>
       </div>
 
-      {/* Centered Scroll Down Cue at Bottom */}
+      {}
       <ScrollCue />
     </section>
   );

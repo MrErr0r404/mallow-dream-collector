@@ -1,10 +1,4 @@
-/* ==========================================================================
-   Hero.css — Mallow, The Little Dream Collector
-   Key Design Tokens:
-   Warm cream: #fff8f1 | Rich berry: #a34063 | Warm brown: #5c4033
-   Lavender: #c7b5f5 | Pale lilac: #eee7ff | Blush pink: #f6dce8
-   Warm gold: #f4cc77 | Deep night purple: #211d3a
-   ========================================================================== */
+
 
 :root {
   --nav-height: 72px;
@@ -42,9 +36,7 @@
   --hero-shadow: 0 24px 60px -15px rgba(244, 204, 119, 0.15);
 }
 
-/* --------------------------------------------------------------------------
-   Hero Container & Layout
-   -------------------------------------------------------------------------- */
+
 .hero-section {
   position: relative;
   min-height: calc(100vh - var(--nav-height, 72px));
@@ -103,9 +95,7 @@
   flex: 1;
 }
 
-/* --------------------------------------------------------------------------
-   Left Column: Text Content
-   -------------------------------------------------------------------------- */
+
 .hero-text-col {
   flex: 1.1;
   display: flex;
@@ -114,7 +104,7 @@
   gap: 1.35rem;
 }
 
-/* Label Badge */
+
 .hero-badge {
   display: inline-flex;
   align-items: center;
@@ -150,7 +140,7 @@
   50% { transform: scale(1.25); opacity: 1; }
 }
 
-/* Main Heading */
+
 .hero-heading {
   font-family: var(--font-heading);
   font-size: 3.6rem;
@@ -169,7 +159,7 @@
   display: inline-block;
 }
 
-/* Subheading */
+
 .hero-subheading {
   font-family: var(--font-body);
   font-size: 1.22rem;
@@ -180,7 +170,7 @@
   font-weight: 400;
 }
 
-/* Button Group */
+
 .hero-button-group {
   display: flex;
   align-items: center;
@@ -269,7 +259,7 @@
   color: #fff8f1;
 }
 
-/* Handwritten Note */
+
 .hero-handwritten-note {
   font-family: var(--font-ui);
   font-size: 0.95rem;
@@ -293,9 +283,7 @@
   50% { transform: scale(1.22); }
 }
 
-/* --------------------------------------------------------------------------
-   Right Column: Mallow Illustration & Floating Stars
-   -------------------------------------------------------------------------- */
+
 .hero-image-col {
   flex: 0.9;
   display: flex;
@@ -304,7 +292,7 @@
   position: relative;
 }
 
-/* Outer pointer-reactive frame */
+
 .mallow-pointer-wrapper {
   position: relative;
   display: flex;
@@ -314,7 +302,7 @@
   will-change: transform;
 }
 
-/* Floating animation wrapper */
+
 .mallow-float-wrapper {
   position: relative;
   animation: mallowFloat 4s ease-in-out infinite;
@@ -332,7 +320,7 @@
   }
 }
 
-/* Lantern Glow Effect (CSS box-shadow pulse) */
+
 .mallow-lantern-glow {
   position: absolute;
   top: 50%;
@@ -367,7 +355,7 @@
   }
 }
 
-/* Character Image Frame */
+
 .mallow-image-frame {
   position: relative;
   z-index: 2;
@@ -408,7 +396,7 @@
               0 0 50px rgba(244, 204, 119, 0.45);
 }
 
-/* Click Bounce Animation */
+
 .mallow-image-frame.bounce-active {
   animation: mallowBounce 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
@@ -430,9 +418,7 @@
   pointer-events: none;
 }
 
-/* --------------------------------------------------------------------------
-   Floating Stars
-   -------------------------------------------------------------------------- */
+
 .floating-star {
   position: absolute;
   color: var(--star-color);
@@ -458,9 +444,7 @@
   }
 }
 
-/* --------------------------------------------------------------------------
-   Scroll Cue Component
-   -------------------------------------------------------------------------- */
+
 .hero-scroll-cue-wrapper {
   width: 100%;
   display: flex;
@@ -513,9 +497,7 @@
   }
 }
 
-/* --------------------------------------------------------------------------
-   Responsive Styles
-   -------------------------------------------------------------------------- */
+
 @media (max-width: 960px) {
   .hero-content-wrapper {
     flex-direction: column-reverse;
@@ -585,7 +567,7 @@
   }
 }
 
-/* Respect user's motion preferences */
+
 @media (prefers-reduced-motion: reduce) {
   .mallow-float-wrapper,
   .mallow-lantern-glow,

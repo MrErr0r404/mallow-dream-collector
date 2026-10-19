@@ -1,10 +1,6 @@
 import { useState, useEffect } from 'react';
 
-/**
- * useReducedMotion Hook
- * Listens to the `prefers-reduced-motion: reduce` media query.
- * Returns boolean true if user prefers reduced motion, false otherwise.
- */
+
 export function useReducedMotion() {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(() => {
     if (typeof window === 'undefined' || !window.matchMedia) return false;

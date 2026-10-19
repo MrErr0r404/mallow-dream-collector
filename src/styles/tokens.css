@@ -1,10 +1,7 @@
-/* ============================================
-   MALLOW — Design Tokens
-   haX.baby Hackathon 2026
-   ============================================ */
+
 
 :root {
-  /* === Day Mode Colors === */
+  
   --color-cream: #fff8f1;
   --color-berry: #a34063;
   --color-berry-dark: #8a3454;
@@ -18,7 +15,7 @@
   --color-plum: #3d2145;
   --color-white: #ffffff;
 
-  /* === Semantic Colors (Day) === */
+  
   --bg-primary: var(--color-cream);
   --bg-secondary: var(--color-lilac);
   --bg-card: var(--color-white);
@@ -47,7 +44,7 @@
   --particle-color: var(--color-gold);
   --star-color: var(--color-gold);
 
-  /* === Typography === */
+  
   --font-display: 'DM Serif Display', 'Georgia', serif;
   --font-playful: 'Fredoka', 'Nunito', sans-serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -63,7 +60,7 @@
   --text-5xl: 3.5rem;
   --text-hero: clamp(2.5rem, 6vw, 4.5rem);
 
-  /* === Spacing === */
+  
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
   --space-md: 1rem;
@@ -74,7 +71,7 @@
   --space-4xl: 6rem;
   --space-section: clamp(4rem, 10vw, 8rem);
 
-  /* === Layout === */
+  
   --max-width: 1200px;
   --max-width-narrow: 800px;
   --nav-height: 72px;
@@ -84,14 +81,14 @@
   --border-radius-xl: 28px;
   --border-radius-full: 9999px;
 
-  /* === Transitions === */
+  
   --transition-fast: 150ms ease;
   --transition-base: 250ms ease;
   --transition-slow: 400ms ease;
   --transition-theme: 600ms ease;
 }
 
-/* === Night Mode === */
+
 [data-theme="night"] {
   --bg-primary: #1a1630;
   --bg-secondary: #2a2445;

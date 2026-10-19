@@ -1,15 +1,4 @@
-/* ==========================================================================
-   MemoryCollection Component Styles
-   Theme tokens:
-   - Warm cream: #fff8f1
-   - Rich berry: #a34063
-   - Warm brown: #5c4033
-   - Lavender: #c7b5f5
-   - Pale lilac: #eee7ff
-   - Blush pink: #f6dce8
-   - Warm gold: #f4cc77
-   - Deep night purple: #211d3a
-   ========================================================================== */
+
 
 .memories-section {
   position: relative;
@@ -31,7 +20,7 @@
   z-index: 2;
 }
 
-/* Header */
+
 .memories-header {
   text-align: center;
   margin-bottom: 3.5rem;
@@ -85,7 +74,7 @@
   color: #c7b5f5;
 }
 
-/* Card Box */
+
 .memory-form-card {
   background: rgba(255, 248, 241, 0.95);
   backdrop-filter: blur(12px);
@@ -103,7 +92,7 @@
   box-shadow: 0 16px 45px rgba(0, 0, 0, 0.4);
 }
 
-/* Form Styles */
+
 .memory-input-group {
   margin-bottom: 1.25rem;
 }
@@ -208,7 +197,7 @@
   transform: none;
 }
 
-/* Success Card */
+
 .memory-success-box {
   text-align: center;
   padding: 1rem 0.5rem;
@@ -292,7 +281,7 @@
   background: rgba(244, 204, 119, 0.15);
 }
 
-/* Saved Memories Section */
+
 .saved-memories-wrapper {
   margin-top: 3.5rem;
 }
@@ -454,7 +443,7 @@
   border-color: rgba(199, 181, 245, 0.2);
 }
 
-/* Privacy footer notice */
+
 .privacy-badge {
   text-align: center;
   margin-top: 2.5rem;

@@ -3,9 +3,7 @@ import useReducedMotion from '../hooks/useReducedMotion';
 
 const COLORS = ['#f4cc77', '#c7b5f5', '#ffffff', '#f6dce8', '#ffd580'];
 
-/**
- * SparkleTrail: Old-school glitter cursor trail with canvas overlay.
- */
+
 export default function SparkleTrail({ chaosMode = false }) {
   const canvasRef = useRef(null);
   const animationFrameRef = useRef(null);
@@ -14,7 +12,6 @@ export default function SparkleTrail({ chaosMode = false }) {
   const colorIndexRef = useRef(0);
   const prefersReducedMotion = useReducedMotion();
 
-  // Draw 4-point twinkle star
   const drawStar = (ctx, cx, cy, spikes, outerRadius, innerRadius, color, alpha) => {
     let rot = (Math.PI / 2) * 3;
     let x = cx;
@@ -47,7 +44,6 @@ export default function SparkleTrail({ chaosMode = false }) {
     (x, y) => {
       const maxParticles = chaosMode ? 65 : 30;
       if (particlesRef.current.length >= maxParticles) {
-        // Drop oldest to keep pool capped
         particlesRef.current.shift();
       }
 
@@ -87,7 +83,6 @@ export default function SparkleTrail({ chaosMode = false }) {
   );
 
   useEffect(() => {
-    // Check for touch device or reduced motion
     const isTouch =
       typeof window !== 'undefined' &&
       ('ontouchstart' in window || (navigator && navigator.maxTouchPoints > 0));
@@ -102,7 +97,6 @@ export default function SparkleTrail({ chaosMode = false }) {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    // Handle high DPI resize
     const handleResize = () => {
       const dpr = window.devicePixelRatio || 1;
       canvas.width = window.innerWidth * dpr;
@@ -113,10 +107,8 @@ export default function SparkleTrail({ chaosMode = false }) {
     handleResize();
     window.addEventListener('resize', handleResize);
 
-    // Throttled mouse movement
     const handleMouseMove = (e) => {
       const now = performance.now();
-      // Throttle to approx 60fps (16ms)
       if (now - lastTimeRef.current >= 16) {
         lastTimeRef.current = now;
         addParticle(e.clientX, e.clientY);
@@ -128,7 +120,6 @@ export default function SparkleTrail({ chaosMode = false }) {
 
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
 
-    // Animation Loop
     const render = () => {
       ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
 
@@ -137,7 +128,6 @@ export default function SparkleTrail({ chaosMode = false }) {
       for (let i = 0; i < particlesRef.current.length; i++) {
         const p = particlesRef.current[i];
 
-        // Update physics
         p.x += p.velocityX;
         p.y += p.velocityY;
         p.opacity -= p.fadeSpeed;
@@ -147,7 +137,6 @@ export default function SparkleTrail({ chaosMode = false }) {
         if (p.opacity > 0.05 && p.size > 0.5) {
           remainingParticles.push(p);
 
-          // Draw particle
           if (p.isStarShape) {
             drawStar(
               ctx,
@@ -186,7 +175,6 @@ export default function SparkleTrail({ chaosMode = false }) {
     };
   }, [addParticle, chaosMode, prefersReducedMotion]);
 
-  // If reduced motion is requested or running on touch, don't render canvas
   if (
     prefersReducedMotion ||
     (typeof window !== 'undefined' &&

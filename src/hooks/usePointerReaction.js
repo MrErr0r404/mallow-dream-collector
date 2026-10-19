@@ -1,17 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 
-/**
- * usePointerReaction Hook
- * Tracks mouse position relative to an element and normalizes it to a [-1, 1] range.
- * - Normalized: (-1, -1) is top-left, (0, 0) is center, (1, 1) is bottom-right.
- * - No-ops on touch devices.
- * - Throttled to 60fps with requestAnimationFrame.
- *
- * Can be used by passing a ref:
- *   const { x, y, isHovering } = usePointerReaction(myRef);
- * Or without arguments:
- *   const { ref, x, y, isHovering } = usePointerReaction();
- */
+
 export function usePointerReaction(targetRef) {
   const internalRef = useRef(null);
   const ref = targetRef || internalRef;
@@ -28,7 +17,6 @@ export function usePointerReaction(targetRef) {
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
-    // Detect touch-only devices to no-op
     const isTouch = 'ontouchstart' in window || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0);
     const hasFinePointer = window.matchMedia && window.matchMedia('(pointer: fine)').matches;
     if (isTouch && !hasFinePointer) {

@@ -1,7 +1,4 @@
-/**
- * Setup script: Copy generated artwork to public directory.
- * Run once after cloning: node setup-assets.js
- */
+
 const fs = require('fs');
 const path = require('path');
 

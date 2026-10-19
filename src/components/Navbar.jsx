@@ -14,14 +14,12 @@ export default function Navbar({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
 
-  // Determine current theme state
   const isNight =
     themeContext.theme === 'night' ||
     themeContext.isNight === true ||
     (typeof document !== 'undefined' &&
       document.documentElement.getAttribute('data-theme') === 'night');
 
-  // Determine muted state
   const isMuted =
     soundContext.isMuted ??
     (soundContext.soundEnabled !== undefined ? !soundContext.soundEnabled : false);
@@ -33,7 +31,6 @@ export default function Navbar({
     { id: 'memories', label: 'Memories' }
   ];
 
-  // Active section observer
   useEffect(() => {
     const sectionIds = ['hero', 'about', 'creations', 'story', 'memories'];
     const handleScroll = () => {
@@ -53,7 +50,6 @@ export default function Navbar({
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu on Escape key
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape' && mobileMenuOpen) {
@@ -385,7 +381,7 @@ export default function Navbar({
 
       <header className="mallow-navbar" role="banner">
         <div className="navbar-container">
-          {/* Left: Brand Logo & Wordmark */}
+          {}
           <a
             href="#hero"
             className="navbar-brand"
@@ -393,7 +389,7 @@ export default function Navbar({
             aria-label="Mallow, The Little Dream Collector — Back to Top"
           >
             <div className="brand-icon-wrapper">
-              {/* Simplified Mallow Face SVG (< 30 lines) */}
+              {}
               <svg
                 viewBox="0 0 36 36"
                 width="34"
@@ -431,7 +427,7 @@ export default function Navbar({
             </span>
           </a>
 
-          {/* Center: Desktop Navigation Links */}
+          {}
           <nav className="navbar-navigation" aria-label="Main Navigation">
             <ul className="navbar-nav-links">
               {navLinks.map((link) => (
@@ -448,9 +444,9 @@ export default function Navbar({
             </ul>
           </nav>
 
-          {/* Right: Controls & Mobile Hamburger */}
+          {}
           <div className="navbar-controls">
-            {/* Chaos Mode Toggle */}
+            {}
             <button
               type="button"
               className={`control-btn chaos-btn ${chaosMode ? 'chaos-active' : ''}`}
@@ -461,7 +457,7 @@ export default function Navbar({
               <Sparkles size={18} />
             </button>
 
-            {/* Sound Toggle */}
+            {}
             <button
               type="button"
               className="control-btn sound-btn"
@@ -472,7 +468,7 @@ export default function Navbar({
               {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
             </button>
 
-            {/* Theme Toggle */}
+            {}
             <button
               type="button"
               className="control-btn theme-btn"
@@ -483,7 +479,7 @@ export default function Navbar({
               {isNight ? <Sun size={18} /> : <Moon size={18} />}
             </button>
 
-            {/* Mobile Hamburger Button */}
+            {}
             <button
               type="button"
               className="control-btn hamburger-btn"
@@ -496,7 +492,7 @@ export default function Navbar({
           </div>
         </div>
 
-        {/* Mobile Dropdown Menu */}
+        {}
         <div
           className={`mobile-dropdown-menu ${mobileMenuOpen ? 'open' : ''}`}
           aria-hidden={!mobileMenuOpen}

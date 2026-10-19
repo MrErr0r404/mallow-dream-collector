@@ -27,7 +27,6 @@ export default function MemoryCollection() {
   const [submittedMemory, setSubmittedMemory] = useState(null);
   const [hasSubmitted, setHasSubmitted] = useState(false);
 
-  // Load memories from localStorage on mount
   useEffect(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
@@ -38,7 +37,6 @@ export default function MemoryCollection() {
           return;
         }
       }
-      // If empty, initialize with gentle defaults
       setMemories(DEFAULT_MEMORIES);
       localStorage.setItem(STORAGE_KEY, JSON.stringify(DEFAULT_MEMORIES));
     } catch (e) {
@@ -105,7 +103,7 @@ export default function MemoryCollection() {
   return (
     <section id="memories" className="memories-section">
       <div className="memories-container">
-        {/* Header */}
+        {}
         <div className="memories-header">
           <div className="memories-eyebrow">✦ YOUR LITTLE MEMORY</div>
           <h2 className="memories-title">Leave a Dream in Mallow's Library</h2>
@@ -114,7 +112,7 @@ export default function MemoryCollection() {
           </p>
         </div>
 
-        {/* Input Form or Success Card */}
+        {}
         <motion.div
           className="memory-form-card"
           initial={{ opacity: 0, y: 25 }}
@@ -199,7 +197,7 @@ export default function MemoryCollection() {
           </AnimatePresence>
         </motion.div>
 
-        {/* Saved Memories Library Shelf */}
+        {}
         <div className="saved-memories-wrapper">
           <div className="saved-memories-top">
             <h3 className="saved-memories-title">
@@ -259,7 +257,7 @@ export default function MemoryCollection() {
           )}
         </div>
 
-        {/* Privacy label */}
+        {}
         <div className="privacy-badge">
           <span>🔒 Your memories live only in your browser — just for you.</span>
         </div>

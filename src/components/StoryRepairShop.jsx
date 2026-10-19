@@ -50,11 +50,9 @@ export default function StoryRepairShop() {
     setIsRepairing(true);
     setSelectedEndingId(ending.id);
 
-    // Play chime sound safely
     try {
       soundContext?.playChime?.();
     } catch {
-      // safe fallback
     }
 
     setTimeout(() => {
@@ -66,7 +64,6 @@ export default function StoryRepairShop() {
     try {
       soundContext?.playClick?.();
     } catch {
-      // safe fallback
     }
     setSelectedEndingId(null);
   };
@@ -74,7 +71,7 @@ export default function StoryRepairShop() {
   return (
     <section className="story-shop-section" id="story-repair">
       <div className="story-shop-container">
-        {/* Section Header */}
+        {}
         <div className="story-shop-header">
           <span className="story-shop-badge">✦ CREATION NO. 001</span>
           <h2 className="story-shop-title">The Story Repair Shop</h2>
@@ -83,22 +80,22 @@ export default function StoryRepairShop() {
           </p>
         </div>
 
-        {/* The Book Workspace */}
+        {}
         <div className="story-book-wrapper">
           <div className="story-book-spine"></div>
           <article className="story-book-page">
-            {/* Decorative Ribbon Bookmark */}
+            {}
             <div className="book-ribbon" aria-hidden="true">
               <span className="ribbon-star">★</span>
             </div>
 
-            {/* Corner Filigrees */}
+            {}
             <div className="corner-filigree top-left" aria-hidden="true">❦</div>
             <div className="corner-filigree top-right" aria-hidden="true">❦</div>
             <div className="corner-filigree bottom-left" aria-hidden="true">❦</div>
             <div className="corner-filigree bottom-right" aria-hidden="true">❦</div>
 
-            {/* Book Header Meta */}
+            {}
             <div className="book-page-header">
               <div className="book-page-meta">
                 <span className="book-chapter">
@@ -111,7 +108,7 @@ export default function StoryRepairShop() {
               <div className="book-page-number">Page 42</div>
             </div>
 
-            {/* Crane Origami Illustration */}
+            {}
             <div className={`crane-illustration-container ${selectedEnding ? `state-${selectedEnding.illustration}` : ''}`}>
               <svg
                 viewBox="0 0 160 110"
@@ -135,7 +132,7 @@ export default function StoryRepairShop() {
                   </filter>
                 </defs>
 
-                {/* Stars/magic when finished */}
+                {}
                 {selectedEndingId === 'star' && (
                   <g className="floating-stars">
                     <circle cx="25" cy="20" r="3" fill="#f4cc77" filter="url(#softGlow)" />
@@ -144,7 +141,7 @@ export default function StoryRepairShop() {
                   </g>
                 )}
 
-                {/* Flowers when maker returns */}
+                {}
                 {selectedEndingId === 'maker' && (
                   <g className="garden-flowers">
                     <circle cx="20" cy="85" r="5" fill="#f6dce8" />
@@ -154,7 +151,7 @@ export default function StoryRepairShop() {
                   </g>
                 )}
 
-                {/* Wind swirls */}
+                {}
                 {selectedEndingId === 'wind' && (
                   <g className="wind-breeze" stroke="#c7b5f5" strokeWidth="1.5" fill="none" strokeLinecap="round">
                     <path d="M 15 35 Q 45 25 75 35 T 145 25" strokeDasharray="3 3" opacity="0.7" />
@@ -162,37 +159,37 @@ export default function StoryRepairShop() {
                   </g>
                 )}
 
-                {/* Origami crane facets */}
+                {}
                 <g className="origami-crane-body" transform="translate(40, 15)">
-                  {/* Left Wing */}
+                  {}
                   <polygon points="40,35 0,10 30,50" fill="url(#craneGrad)" stroke="#5c4033" strokeWidth="1" />
-                  {/* Right Wing */}
+                  {}
                   <polygon points="40,35 80,5 50,50" fill="url(#craneGrad)" stroke="#5c4033" strokeWidth="1" />
-                  {/* Tail */}
+                  {}
                   <polygon points="30,50 10,68 35,55" fill="#eee7ff" stroke="#5c4033" strokeWidth="1" />
-                  {/* Body central fold */}
+                  {}
                   <polygon points="30,50 40,25 50,50 40,65" fill="#fff8f1" stroke="#5c4033" strokeWidth="1.2" />
-                  {/* Neck and Head */}
+                  {}
                   <polygon points="45,50 65,30 75,32 50,55" fill="url(#craneGrad)" stroke="#5c4033" strokeWidth="1" />
                   <polygon points="70,30 78,32 72,36" fill="#f4cc77" stroke="#5c4033" strokeWidth="0.8" />
-                  {/* Shading layer */}
+                  {}
                   <polygon points="40,25 50,50 40,65" fill="url(#craneShade)" />
                 </g>
 
-                {/* Windowsill line */}
+                {}
                 <line x1="10" y1="92" x2="150" y2="92" stroke="#5c4033" strokeWidth="2" strokeLinecap="round" opacity="0.3" />
                 <rect x="15" y="94" width="130" height="4" fill="#a34063" opacity="0.15" rx="2" />
               </svg>
             </div>
 
-            {/* Story Text Box */}
+            {}
             <div className="story-content">
               <p className="story-text story-unfinished">
                 <span className="drop-cap">O</span>
                 nce upon a time, a little paper crane sat on a windowsill, watching the rain. It had been folded by someone who had since forgotten about it. Every night, it dreamed of flying, but paper cranes aren&apos;t meant to fly... or are they?
               </p>
 
-              {/* Repaired Ending Reveal */}
+              {}
               <AnimatePresence mode="wait">
                 {selectedEnding && (
                   <motion.div
@@ -214,7 +211,7 @@ export default function StoryRepairShop() {
                       {selectedEnding.text}
                     </p>
 
-                    {/* Completion Toast inside book */}
+                    {}
                     <motion.div
                       initial={{ scale: 0.9, opacity: 0 }}
                       animate={{ scale: 1, opacity: 1 }}
@@ -240,14 +237,14 @@ export default function StoryRepairShop() {
               </AnimatePresence>
             </div>
 
-            {/* Bottom Book Flourish */}
+            {}
             <div className="book-page-footer">
               <span className="footer-flourish">❦ ✦ ❦</span>
             </div>
           </article>
         </div>
 
-        {/* Ending Selection Controls */}
+        {}
         <div className="endings-selection-area">
           <div className="endings-title-row">
             <h3 className="endings-heading">

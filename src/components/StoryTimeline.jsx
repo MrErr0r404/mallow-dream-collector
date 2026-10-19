@@ -9,7 +9,6 @@ export default function StoryTimeline() {
   const [visibleScenes, setVisibleScenes] = useState({});
   const [progressPercent, setProgressPercent] = useState(0);
 
-  // IntersectionObserver to track visible scenes and calculate progress
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -40,7 +39,6 @@ export default function StoryTimeline() {
     };
   }, []);
 
-  // Update timeline fill based on visible scenes
   useEffect(() => {
     const indices = Object.keys(visibleScenes)
       .map(Number)
@@ -56,7 +54,6 @@ export default function StoryTimeline() {
     }
   }, [visibleScenes]);
 
-  // Render specific decorative art for each scene
   const renderSceneDecoration = (scene, index) => {
     switch (index) {
       case 0:
@@ -119,7 +116,7 @@ export default function StoryTimeline() {
   return (
     <section id="story" className="story-section" ref={containerRef}>
       <div className="story-container">
-        {/* Header */}
+        {}
         <div className="story-header">
           <div className="story-eyebrow">✦ MALLOW'S ORIGIN</div>
           <h2 className="story-title">How It All Began</h2>
@@ -128,9 +125,9 @@ export default function StoryTimeline() {
           </p>
         </div>
 
-        {/* Timeline Structure */}
+        {}
         <div className="story-timeline-wrapper">
-          {/* Vertical progress line */}
+          {}
           <div className="story-timeline-line" aria-hidden="true">
             <div
               className="story-timeline-fill"
@@ -138,7 +135,7 @@ export default function StoryTimeline() {
             />
           </div>
 
-          {/* Scenes */}
+          {}
           <div className="story-scenes">
             {story.map((scene, index) => {
               const isEven = index % 2 === 1;
@@ -153,7 +150,7 @@ export default function StoryTimeline() {
                     isActive ? 'is-active' : ''
                   }`}
                 >
-                  {/* Content Column */}
+                  {}
                   <motion.div
                     className="story-content-col"
                     initial={{ opacity: 0, y: 35 }}
@@ -177,7 +174,7 @@ export default function StoryTimeline() {
                     </div>
                   </motion.div>
 
-                  {/* Marker Dot */}
+                  {}
                   <div className="story-marker-col">
                     <button
                       type="button"
@@ -190,7 +187,7 @@ export default function StoryTimeline() {
                     </button>
                   </div>
 
-                  {/* Illustration Column */}
+                  {}
                   <motion.div
                     className="story-illustration-col"
                     initial={{ opacity: 0, scale: 0.92, y: 20 }}

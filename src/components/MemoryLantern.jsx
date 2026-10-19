@@ -66,14 +66,12 @@ export default function MemoryLantern() {
   const [showSuccessToast, setShowSuccessToast] = useState(false);
   const [formError, setFormError] = useState('');
 
-  // Load custom memories from localStorage on mount
   useEffect(() => {
     try {
       const stored = localStorage.getItem('mallow-memories');
       if (stored) {
         const parsed = JSON.parse(stored);
         if (Array.isArray(parsed) && parsed.length > 0) {
-          // Merge custom memories with defaults
           setMemories([...DEFAULT_MEMORIES, ...parsed]);
         }
       }
@@ -125,7 +123,6 @@ export default function MemoryLantern() {
       createdAt: new Date().toLocaleDateString(undefined, { month: 'short', day: 'numeric' }),
     };
 
-    // Play bell sound
     try {
       soundContext?.playBell?.();
     } catch {}
@@ -133,7 +130,6 @@ export default function MemoryLantern() {
     const updatedMemories = [...memories, newMemory];
     setMemories(updatedMemories);
 
-    // Save custom memories to localStorage
     try {
       const customOnly = updatedMemories.filter((m) => m.isCustom);
       localStorage.setItem('mallow-memories', JSON.stringify(customOnly));
@@ -141,7 +137,6 @@ export default function MemoryLantern() {
       console.warn('Could not save to localStorage:', err);
     }
 
-    // Reset input
     setInputText('');
     setFormError('');
     setShowSuccessToast(true);
@@ -149,7 +144,6 @@ export default function MemoryLantern() {
       setShowSuccessToast(false);
     }, 3200);
 
-    // Automatically highlight the new memory lantern
     setActiveMemoryId(newMemory.id);
   };
 
@@ -166,7 +160,6 @@ export default function MemoryLantern() {
       setActiveMemoryId(null);
     }
 
-    // Update localStorage
     try {
       const customOnly = updated.filter((m) => m.isCustom);
       localStorage.setItem('mallow-memories', JSON.stringify(customOnly));
@@ -178,7 +171,7 @@ export default function MemoryLantern() {
   return (
     <section className="lantern-section" id="memory-lantern">
       <div className="lantern-container">
-        {/* Section Header */}
+        {}
         <div className="lantern-header">
           <span className="lantern-badge">✦ CREATION NO. 002</span>
           <h2 className="lantern-title">The Memory Lantern</h2>
@@ -187,7 +180,7 @@ export default function MemoryLantern() {
           </p>
         </div>
 
-        {/* Lanterns Grid */}
+        {}
         <div className="lanterns-grid" role="region" aria-label="Glowing Memory Lanterns">
           {memories.map((memory, index) => {
             const isActive = activeMemoryId === memory.id;
@@ -211,16 +204,16 @@ export default function MemoryLantern() {
                 aria-expanded={isActive}
                 aria-label={`Lantern ${index + 1}: ${memory.text}`}
               >
-                {/* Floating flame flicker aura */}
+                {}
                 <div className="lantern-aura" aria-hidden="true" />
 
-                {/* Lantern Top Ring & Fixture */}
+                {}
                 <div className="lantern-cap">
                   <div className="lantern-ring" />
                   <div className="lantern-lid" />
                 </div>
 
-                {/* Lantern Chamber */}
+                {}
                 <div className="lantern-chamber">
                   <div className="lantern-flame" aria-hidden="true">
                     <span className="flame-core" />
@@ -235,12 +228,12 @@ export default function MemoryLantern() {
                     {memory.isCustom ? '✦ Your Memory' : memory.label}
                   </span>
 
-                  {/* Preview or expanded text */}
+                  {}
                   <p className="lantern-text-preview">
                     {isActive ? memory.text : `"${memory.text.slice(0, 52)}${memory.text.length > 52 ? '...' : ''}"`}
                   </p>
 
-                  {/* If custom, show trash delete icon */}
+                  {}
                   {memory.isCustom && (
                     <button
                       type="button"
@@ -253,7 +246,7 @@ export default function MemoryLantern() {
                     </button>
                   )}
 
-                  {/* If active, show close cross */}
+                  {}
                   {isActive && (
                     <button
                       type="button"
@@ -267,14 +260,14 @@ export default function MemoryLantern() {
                   )}
                 </div>
 
-                {/* Lantern Base */}
+                {}
                 <div className="lantern-base" />
               </motion.div>
             );
           })}
         </div>
 
-        {/* Focused Expanded View Modal (Accessible & Cinematic) */}
+        {}
         <AnimatePresence>
           {activeMemory && (
             <motion.div
@@ -338,7 +331,7 @@ export default function MemoryLantern() {
           )}
         </AnimatePresence>
 
-        {/* Add Memory Form Section */}
+        {}
         <div className="lantern-add-wrapper">
           <div className="lantern-add-card">
             <div className="lantern-add-header">
@@ -373,7 +366,7 @@ export default function MemoryLantern() {
                 {formError && <p className="form-error-msg">{formError}</p>}
               </div>
 
-              {/* Lantern Color Picker */}
+              {}
               <div className="color-picker-row">
                 <span className="color-picker-label">Lantern Glow:</span>
                 <div className="color-options-group" role="radiogroup" aria-label="Lantern glow color">
@@ -398,7 +391,7 @@ export default function MemoryLantern() {
                 </div>
               </div>
 
-              {/* Action row */}
+              {}
               <div className="form-action-row">
                 <button type="submit" className="lantern-submit-btn">
                   <Sparkles size={16} />
@@ -406,7 +399,7 @@ export default function MemoryLantern() {
                 </button>
               </div>
 
-              {/* Success Notification */}
+              {}
               <AnimatePresence>
                 {showSuccessToast && (
                   <motion.div
@@ -421,7 +414,7 @@ export default function MemoryLantern() {
                 )}
               </AnimatePresence>
 
-              {/* Privacy Note */}
+              {}
               <div className="privacy-note">
                 <Lock size={13} className="privacy-lock-icon" />
                 <span>Your memories are stored locally in your browser, just for you. 🔒</span>
